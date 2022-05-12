@@ -58,7 +58,12 @@ public class JeuxService {
             }
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
+        
+                sendMail("tarek.ayadi@esprit.tn");
+
+        
       return resultOK;
+      
     } 
      
      public ArrayList<Jeux> parseJeux(String jsonText){
@@ -274,5 +279,24 @@ try {
     
     }
           
+     
+     
+     public void sendMail(String Email) {
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl("http://localhost:/Email/sendmail.php?email="+Email);
+
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+
+                byte[] data = (byte[]) evt.getMetaData();
+                String s = new String(data);
+                System.err.println("Mail Sent");
+            }
+        });
+
+        NetworkManager.getInstance().addToQueue(req);
+    }
           
 }

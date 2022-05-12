@@ -14,6 +14,7 @@ package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.User;
 import com.arena.myapp.services.UserService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
@@ -44,11 +45,11 @@ public class listUserForm extends BaseForm {
     public listUserForm(Resources res, User c) {
 
         super(BoxLayout.y());
-        Toolbar tb = new Toolbar(true);
-        setToolbar(tb);
-        tb.setTitle("Liste des Client");
+       // Toolbar tb = new Toolbar(true);
+      //  setToolbar(tb);
+       // tb.setTitle("Liste des Client");
         getContentPane().setScrollVisible(true);
-       // super.addSideMenu(res);
+        super.addSideMenu(res);
 
         
       //  Button btnAddTask1 = new Button("Statistiques");
@@ -56,9 +57,8 @@ public class listUserForm extends BaseForm {
         //btnAddTask1.addActionListener(e -> new statistiques1().createPieChartForm().show());
 
         //addAll(btnAddTask1);
-
         UserService as = new UserService();
-        ArrayList<User> list = as.getAllUser();
+        ArrayList<User> list = as.AfficherJeux();
 
         {
 
@@ -68,7 +68,7 @@ public class listUserForm extends BaseForm {
 
                 SpanLabel cat = new SpanLabel("Nom :" + a.getNom());
                 SpanLabel cat1 = new SpanLabel("prenom :" + a.getSurnom());
-                SpanLabel cat2 = new SpanLabel("date :" + a.getSurnom());
+                SpanLabel cat2 = new SpanLabel("username :" + a.getSurnom());
                 SpanLabel cat3 = new SpanLabel("num :" + a.getEmail());
                 SpanLabel cat4 = new SpanLabel("sexe :" + a.getImage());
                 SpanLabel cat5 = new SpanLabel("email :" + a.getTelephone());
@@ -97,6 +97,7 @@ public class listUserForm extends BaseForm {
                 c3.add(cat9);
                 c3.add(cat10);
                 c3.add(cat11);
+if (c.getUsername().equals(a.getUsername())) {
 
                 Button Delete = new Button("Delete");
                 c3.add(Delete);
@@ -112,7 +113,7 @@ public class listUserForm extends BaseForm {
                     ok.addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent evt) {
-                            as.Delete(a.getId());
+                            as.Delete1(a.getId());
 
                             alert.dispose();
                             ToastBar.Status status = ToastBar.getInstance().createStatus();
@@ -139,7 +140,7 @@ public class listUserForm extends BaseForm {
                     c3.add(Modifier);
                      Modifier.getAllStyles().setBgColor(0xF36B08);
               Modifier.addActionListener(e -> {
-               //     new UpdateUserForm(res,a).show();
+                   new UpdateUserForm(res,a).show();
                         } 
 
                    
@@ -153,9 +154,12 @@ public class listUserForm extends BaseForm {
                 add(c3);
 
             }
+            }}
 
         }
 
     }
-}
+
+   
+//}
 

@@ -20,7 +20,6 @@ public class User {
     private String roles, username;
 
     public User() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {

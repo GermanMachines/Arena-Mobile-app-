@@ -14,6 +14,9 @@ import com.arena.myapp.services.UserService;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
+import com.codename1.io.ConnectionRequest;
+import com.codename1.io.NetworkEvent;
+import com.codename1.io.NetworkManager;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;
 import com.codename1.ui.Command;
@@ -105,9 +108,13 @@ public class AddJeuxForm extends BaseForm {
                 
         });    
         
-        
-        addAll(tfNom , tflogo, btnValider);
    
+
+        addAll(tfNom , tflogo, btnValider);
      }
+       
+       
+       
+       
     
 }

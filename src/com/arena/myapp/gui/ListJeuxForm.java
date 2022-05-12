@@ -94,8 +94,8 @@ public class ListJeuxForm extends BaseForm{
         private void addJeux(Image img,Jeux c, Resources res, int i,Button avisBtn,Button Delete,Button Modifier) {
         
         
-        int height = Display.getInstance().convertToPixels(16f);
-        int width = Display.getInstance().convertToPixels(12f);
+        int height = Display.getInstance().convertToPixels(20f);
+        int width = Display.getInstance().convertToPixels(30f);
 
         Button image = new Button(img.fill(width, height));
         image.setUIID("Label");

@@ -41,6 +41,7 @@ import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.arena.myapp.entities.User;
+import com.arena.myapp.utils.Session;
 
 
 
@@ -56,6 +57,8 @@ public class BaseForm extends Form {
     public BaseForm(String title, Layout contentPaneLayout) {
         super(title, contentPaneLayout);
     }
+    
+   
     
     
     public Component createLineSeparator() {
@@ -87,6 +90,8 @@ public class BaseForm extends Form {
      CategoryReclamation c = new CategoryReclamation();
      Jeux j = new Jeux();
      Tournois t = new Tournois();
+     User u = new User();
+      
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -94,6 +99,10 @@ public class BaseForm extends Form {
 //        ));
          tb.addMaterialCommandToSideMenu("Ajout user", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new AjoutUser(res).show());
          tb.addMaterialCommandToSideMenu("Ajout equipe", FontImage.MATERIAL_UPDATE, e -> new AddTeamForm(res).show());
+             //   tb.addMaterialCommandToSideMenu("Voir Profile", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new listUserForm(res,u).show());
+
+                    tb.addMaterialCommandToSideMenu("Liste users", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new ListUsers(res,u).show());
+
        //  tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_ERROR, e -> new addReclaForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Equipe", FontImage.MATERIAL_LIST, e -> new ListTeamForm(res,b).show());
            tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
