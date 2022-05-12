@@ -5,6 +5,8 @@
  */
 package com.arena.myapp.entities;
 
+import java.util.LinkedHashMap;
+
 /**
  *
  * @author DeathKnight
@@ -15,7 +17,27 @@ public class Avis {
     private String commentaire;
     private int idUtulisateur;
     private int idJeux;
+    LinkedHashMap<String,Object> hm;
+    private String nomJeux;
 
+    public Avis() {
+   }
+
+    public LinkedHashMap<String, Object> getHm() {
+        return hm;
+    }
+
+    public void setHm(LinkedHashMap<String, Object> hm) {
+        this.hm = hm;
+    }
+
+    public String getNomJeux() {
+        return nomJeux;
+    }
+
+    public void setNomJeux(String nomJeux) {
+        this.nomJeux = nomJeux;
+    }
     
     public Avis( int id,int score, String commentaire, int idUtulisateur, int idJeux) {
         this.id = id;
@@ -23,6 +45,14 @@ public class Avis {
         this.commentaire = commentaire;
         this.idUtulisateur = idUtulisateur;
         this.idJeux = idJeux;
+    }
+
+    public Avis(int score,String commentaire,int idUtulisateur , int idJeux) {
+        this.score = score;
+        this.commentaire = commentaire;
+        this.idUtulisateur = idUtulisateur;
+        this.idJeux = idJeux;
+       
     }
        
     public int getId() {

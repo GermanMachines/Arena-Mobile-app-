@@ -5,7 +5,11 @@
  */
 package com.arena.myapp.gui;
 
+import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.Jeux;
+import com.arena.myapp.services.AvisService;
+import com.codename1.components.SpanLabel;
+import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Container;
 import com.codename1.ui.TextField;
@@ -18,14 +22,14 @@ import java.util.Map;
  *
  * @author DeathKnight
  */
-public class AvisForm extends BaseForm{
-         public AvisForm (Resources res, Jeux j) {
+public class AddAvisForm extends BaseForm{
+         public AddAvisForm (Resources res, Jeux j) {
        
           super(BoxLayout.y());
 
         super.addSideMenu(res);
               
-        setTitle("Ajouter une equipe");
+        setTitle("Ajouter une Avis");
         setLayout(BoxLayout.y());
         TextField tfCommentaire = new TextField("","Comment...");
         ComboBox<Map<Integer,Integer>> cbRating = new ComboBox<>(
@@ -35,11 +39,27 @@ public class AvisForm extends BaseForm{
                 createListEntry(4,4),
                 createListEntry(5,5)
         );
+        AvisService as = new AvisService();
  
         Container c1 = new Container();
-         c1.addAll(tfCommentaire,cbRating);
+        
+        SpanLabel nomJeux = new SpanLabel("Nom Jeux: " + j.getNomjeux());
+     
+        Button rate = new Button("Rate");
+         c1.addAll(nomJeux,tfCommentaire,cbRating,rate);
              System.out.println(j.getIdjeux()+" | "+ j.getNomjeux());
              add(c1);
+             rate.addActionListener(e -> {
+                 
+                int score = cbRating.getModel().getSelectedIndex();
+                String commentaire =tfCommentaire.getText();
+                 int idJeux = j.getIdjeux();
+                 System.out.println(score);
+                 
+                 
+                 Avis a = new Avis(score,commentaire,47,idJeux);
+                 as.ajoutAvis(a);
+             });
 }
         
         
@@ -50,5 +70,5 @@ public class AvisForm extends BaseForm{
     entry.put(name, date);
 
     return entry;
-}
+    }
 }

@@ -22,6 +22,7 @@
 
 package com.arena.myapp.gui;
 
+import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
@@ -87,6 +88,7 @@ public class BaseForm extends Form {
      CategoryReclamation c = new CategoryReclamation();
      Jeux j = new Jeux();
      Tournois t = new Tournois();
+     Avis a = new Avis();
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -106,6 +108,6 @@ public class BaseForm extends Form {
            tb.addMaterialCommandToSideMenu("Liste Jeux", FontImage.MATERIAL_LIST, e -> new ListJeuxForm(res,j).show());
            tb.addMaterialCommandToSideMenu("Ajout Tournois", FontImage.MATERIAL_UPDATE, e -> new AddTournoisForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Tournois", FontImage.MATERIAL_LIST, e -> new ListTournoisForm(res,t).show());
-
+            tb.addMaterialCommandToSideMenu("Liste Avis", FontImage.MATERIAL_LIST, e -> new ListAvisForm(res,a).show());
     }
 }
