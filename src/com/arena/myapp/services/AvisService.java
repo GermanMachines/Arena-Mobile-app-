@@ -157,7 +157,7 @@ public class AvisService {
      public ArrayList<Avis>affichageAvisFront() {
         ArrayList<Avis> result = new ArrayList<>();
         int iduser = 47;
-        String url = Statics.BASE_URL+"/avis/getAllAvisJSONFront?iduser="+iduser;
+        String url = Statics.BASE_URL+"/avis/getAllReclamationJSONFront?iduser="+iduser;
         System.out.println(url);
         req.setPost(false);
         req.setUrl(url);

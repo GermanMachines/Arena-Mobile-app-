@@ -159,6 +159,89 @@ public class ServiceReclamation {
         
         
     }
+     public ArrayList<Reclamation>affichageReclamationsFront() {
+        ArrayList<Reclamation> result = new ArrayList<>();
+        int iduser = 47;
+        String url = Statics.BASE_URL+"/reclamation/getReclamationsJSONFront="+iduser;
+        System.out.println(url);
+        req.setPost(false);
+        req.setUrl(url);
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                JSONParser jsonp ;
+                jsonp = new JSONParser();
+                
+                try {
+                    System.out.println(req.getResponseData());
+                    Map<String,Object>mapReclamations = jsonp.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
+                    
+                    List<Map<String,Object>> listOfMaps = (List<Map<String,Object>>)  mapReclamations.get("root");
+                    
+                    for(Map<String, Object> obj : listOfMaps) {
+                        Reclamation re = new Reclamation();
+                        
+                        //dima id fi codename one float 5outhouha
+                        //iduser?
+                        //JSONParser parser = new JSONParser(Integer.toString(obj.get("idcategoryreclamation")));
+                      
+                        re.setHm((LinkedHashMap<String, Object>) obj.get("idcategoryreclamation"));
+                   //     System.out.println(obj.getOrDefault("idcategoryreclamation", new CategoryReclamation()));
+                   
+                      //  int idCategoryReclaamtion = Integer.parseInt(obj.get("idcategoryreclamation").toString());
+                         
+                        String titre = obj.get("titre").toString();
+                        
+                   
+                       
+                        
+                        String message = obj.get("message").toString();
+                        //float idUser = Float.parseFloat(obj.get("iduser").toString());
+                        float idUser = 47;
+                        
+                       // re.setCategoryReclamationId(idCategoryReclaamtion);
+                        re.setTitre(titre);
+                        re.setMessage(message);
+                        int idrec =(int) Float.parseFloat(obj.get("id").toString());
+                  
+                        System.out.println(idrec);
+                        re.setId(idrec);
+                        re.setCategoryReclamationId((int) Float.parseFloat(re.getHm().get("id").toString()));
+                        re.setNomCategory(re.getHm().get("nom").toString());
+                      
+                  //     int idcat = Integer.parseInt();
+                       
+                      //  re.setCategoryReclamationId(idcat);
+             
+                 //       re.setObjet(objet);
+                 //       re.setDescription(description);
+                //       re.setEtat((int)etat);
+                        
+                  
+                  //      re.setDate(dateString);
+                        
+                        //insert data into ArrayList result
+                        result.add(re);
+                       
+                    
+                    }
+                    
+                }catch(Exception ex) {
+                    
+                    ex.printStackTrace();
+                }
+            
+            }
+        });
+        
+      NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
+
+        return result;
+        
+        
+    }
+
     
     
     

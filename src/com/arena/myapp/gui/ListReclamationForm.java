@@ -44,7 +44,7 @@ public class ListReclamationForm extends BaseForm {
        
 
         ServiceReclamation as = new ServiceReclamation();
-        ArrayList<Reclamation> list = as.affichageReclamations();
+        ArrayList<Reclamation> list = as.affichageReclamationsFront();
     
 
         {
