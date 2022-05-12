@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="GUI 1" cloudDestinationProperty="GUI 1" >
+  <component type="Container" name="Container" cloudDestinationProperty="Container" >
+  </component>
+  <component type="ComboBox" name="ComboBox" cloudDestinationProperty="ComboBox" >
+    <stringItem value="Item 1" />
+    <stringItem value="Item 2" />
+    <stringItem value="Item 3" />
+  </component>
+</component>

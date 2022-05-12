@@ -50,7 +50,7 @@ public class ListTournoisForm extends BaseForm{
                 SpanLabel cat1 = new SpanLabel("DateDebut :" + a.getDateDebut());
                 SpanLabel cat2 = new SpanLabel("DateFin :" + a.getDateFin());
                 SpanLabel cat3 = new SpanLabel("Desc :" + a.getDescriptiontournois());
-               SpanLabel cat8 = new SpanLabel("type :" + a.getType());
+                SpanLabel cat8 = new SpanLabel("type :" + a.getType());
 
                 SpanLabel cat4 = new SpanLabel("nbrparticipants :" + a.getNbrparticipants());
                 SpanLabel cat5 = new SpanLabel("winner :" + a.getWinner()); 

@@ -4,9 +4,6 @@ package com.arena.myapp;
 import com.arena.myapp.entities.User;
 import com.arena.myapp.gui.AddTeamForm;
 import com.arena.myapp.gui.AjoutUser;
-import com.arena.myapp.gui.ListJeuxForm;
-import com.arena.myapp.gui.ListTeamForm;
-import com.arena.myapp.gui.TCalendarEvenements;
 import com.arena.myapp.gui.listUserForm;
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Display;
@@ -63,8 +60,6 @@ public class MyApplication {
             return;
         }
         new AddTeamForm(theme).show();
-       // new ListJeuxForm(theme).show();
-       //new TCalendarEvenements(theme).show();
     }
 
     public void stop() {

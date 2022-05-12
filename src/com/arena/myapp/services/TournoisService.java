@@ -41,7 +41,19 @@ public class TournoisService {
     }
     
      public boolean addTournois(Tournois a) {
-        String url = Statics.BASE_URL + "/tournois/s/AjouterTournoisMobile?titre=" + a.getTitre() + "&dateDebut=" + a.getDateDebut()+ "&dateFin=" + a.getDateFin() + "&descriptiontournois=" + a.getDescriptiontournois()+ "&type=" + a.getType()+ "&nbrparticipants=" + a.getNbrparticipants()+ "&winner=" + a.getWinner() + "&status=" + a.getStatus() +"&idjeux="+ a.getIdjeux() ; //création de l'URL
+       // String url = Statics.BASE_URL + "/tournois/s/AjouterTournoisMobile?titre=" + a.getTitre() + "&dateDebut=" + a.getDateDebut()+ "&dateFin=" + a.getDateFin() + "&descriptiontournois=" + a.getDescriptiontournois()+ "&type=" + a.getType()+ "&nbrparticipants=" + a.getNbrparticipants()+ "&winner=" + a.getWinner() + "&status=" + a.getStatus() +"&idjeux="+ a.getIdjeux() ; //création de l'URL
+       String url = Statics.BASE_URL + "/tournois/s/AjouterTournoisMobile";
+         System.out.println(url);
+       req.setPost(false);
+        req.addArgument("titre",a.getTitre());
+        req.addArgument("dateDebut", a.getDateDebut());
+         req.addArgument("dateFin", a.getDateFin());
+          req.addArgument("descriptiontournois", a.getDescriptiontournois());
+           req.addArgument("type", a.getType());
+           req.addArgument("nbrparticipants", Integer.toString(a.getNbrparticipants()));
+           req.addArgument("Winner", a.getWinner());
+           req.addArgument("status",a.getStatus());
+           req.addArgument("idjeux", Integer.toString(0));
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -155,7 +167,7 @@ public class TournoisService {
                         float nbrparticipants = Float.parseFloat(obj.get("nbrparticipants").toString());
                         String winner = obj.get("winner").toString();
                         String status = obj.get("status").toString();
-                     //   float idjeux = Float.parseFloat(obj.get("idjeux").toString());
+                     // float idjeux = Float.parseFloat(obj.get("idjeux").toString());
 
 
                         c.setIdtournois((int)id);
