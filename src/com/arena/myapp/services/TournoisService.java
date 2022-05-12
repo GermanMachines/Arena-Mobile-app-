@@ -167,7 +167,7 @@ public class TournoisService {
                         float nbrparticipants = Float.parseFloat(obj.get("nbrparticipants").toString());
                         String winner = obj.get("winner").toString();
                         String status = obj.get("status").toString();
-                     //   float idjeux = Float.parseFloat(obj.get("idjeux").toString());
+                     // float idjeux = Float.parseFloat(obj.get("idjeux").toString());
 
 
                         c.setIdtournois((int)id);
