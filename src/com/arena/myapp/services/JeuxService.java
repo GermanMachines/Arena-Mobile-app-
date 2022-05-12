@@ -5,6 +5,7 @@
  */
 package com.arena.myapp.services;
 
+import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.utils.Statics;
 import com.codename1.io.CharArrayReader;
@@ -16,6 +17,7 @@ import com.codename1.ui.events.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 /**
  *
@@ -220,6 +222,57 @@ try {
     }
      
      
+     public Vector<Jeux> getCategoriesJeuxVector()
+    {
+
+        List<Jeux> result = new Vector<>();
+       // String url = Statics.BASE_URL+"jeux/s/AfficherJeuxMobile";
+         String url = Statics.BASE_URL+"/jeux/s/AfficherJeuxMobile"; 
+          req.setUrl(url);
+          req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                
+                JSONParser jsonp;
+                jsonp = new JSONParser();
+                
+                try 
+                {
+                    Map<String,Object>mapCategorie = jsonp.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
+                    List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapCategorie.get("root");
+                    for(Map<String, Object> obj : ListOfMaps)
+                    {
+                        Jeux c = new Jeux();
+                        float id = Float.parseFloat(obj.get("idjeux").toString());
+                        System.out.println((int)id);
+                        String Namecateg = obj.get("nomjeux").toString();
+                      String ImageJeux = obj.get("imagejeux").toString();
+                      
+                        c.setIdjeux((int)id);
+                        //c.setProduit(produit.getId());
+                        //c.setQuantite((int)quantite);
+                        c.setNomjeux(Namecateg);
+                        System.out.println(c);
+      
+                         c.setImagejeux(ImageJeux);
+                        System.out.println(c);
+                        
+                        result.add(c);
+                      //  System.out.println(c.getIdjeux()+" "+c.getNomjeux());
+                    }
+                }
+                catch(Exception ex)
+                {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return (Vector<Jeux>) result;
+    
+    }
           
           
 }

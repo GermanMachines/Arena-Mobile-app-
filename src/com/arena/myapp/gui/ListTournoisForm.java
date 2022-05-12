@@ -50,22 +50,25 @@ public class ListTournoisForm extends BaseForm{
                 SpanLabel cat1 = new SpanLabel("DateDebut :" + a.getDateDebut());
                 SpanLabel cat2 = new SpanLabel("DateFin :" + a.getDateFin());
                 SpanLabel cat3 = new SpanLabel("Desc :" + a.getDescriptiontournois());
-                SpanLabel cat8 = new SpanLabel("type :" + a.getType());
+                SpanLabel cat4 = new SpanLabel("type :" + a.getType());
+                SpanLabel cat5 = new SpanLabel("nbrparticipants :" + a.getNbrparticipants());
+                SpanLabel cat6 = new SpanLabel("idjeux :" + a.getIdjeux());
+                SpanLabel cat7 = new SpanLabel("winner :" + a.getWinner()); 
+                SpanLabel cat8 = new SpanLabel("status :" + a.getStatus());
+                SpanLabel cat9 = new SpanLabel("NomJeux :" + a.getNomjeux());
 
-                SpanLabel cat4 = new SpanLabel("nbrparticipants :" + a.getNbrparticipants());
-                SpanLabel cat5 = new SpanLabel("winner :" + a.getWinner()); 
-                SpanLabel cat6 = new SpanLabel("status :" + a.getStatus());
-                SpanLabel cat7 = new SpanLabel("idjeux :" + a.getIdjeux());
+                
+                
                 c3.add(cat);
                 c3.add(cat1);
                 c3.add(cat2);
                 c3.add(cat3);
-                 c3.add(cat8);
-
                 c3.add(cat4);
                 c3.add(cat5);
                 c3.add(cat6);
                 c3.add(cat7);
+                c3.add(cat8);
+                c3.add(cat9);
                
 
                 Button Delete = new Button("Delete");
