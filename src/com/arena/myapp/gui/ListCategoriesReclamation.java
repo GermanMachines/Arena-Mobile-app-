@@ -46,7 +46,7 @@ public class ListCategoriesReclamation extends BaseForm{
         System.out.println("here");
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
-        tb.setTitle("Liste des reclamations");
+        tb.setTitle("List Categories Reclamation");
         getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
         
@@ -61,11 +61,11 @@ public class ListCategoriesReclamation extends BaseForm{
                 Container c3 = new Container(BoxLayout.y());
 
                 SpanLabel cat = new SpanLabel("Nom :" + a.getNom());
-                SpanLabel cat1 = new SpanLabel("Id :" + a.getId());
+              //  SpanLabel cat1 = new SpanLabel("Id :" + a.getId());
 
             
                 c3.add(cat);
-                c3.add(cat1);
+                //c3.add(cat1);
   
 
                 Button Delete = new Button("Delete");
@@ -74,7 +74,7 @@ public class ListCategoriesReclamation extends BaseForm{
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");
-                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette reclamation?");
+                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette categorie?");
                     alert.add(message);
                     Button ok = new Button("oui");
                     Button cancel = new Button(new Command("non"));
@@ -88,7 +88,7 @@ public class ListCategoriesReclamation extends BaseForm{
                             ToastBar.Status status = ToastBar.getInstance().createStatus();
                             status.setShowProgressIndicator(true);
                             //status.setIcon(res.getImage("done.png").scaledSmallerRatio(Display.getInstance().getDisplayWidth()/10, Display.getInstance().getDisplayWidth()/15));
-                            status.setMessage("client SUPPRIMEE AVEC SUCCES");
+                            status.setMessage("Categorie SUPPRIMEE AVEC SUCCES");
                             status.setExpires(10000);
                             status.show();
 
