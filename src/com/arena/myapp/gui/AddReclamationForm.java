@@ -5,20 +5,16 @@
  */
 package com.arena.myapp.gui;
 
-import com.arena.myapp.entities.CategoryReclamation;
-import com.arena.myapp.entities.Equipe;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
 import com.codename1.ui.Dialog;
-import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.TextField;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.arena.myapp.entities.Reclamation;
-import com.arena.myapp.services.EquipeService;
 import com.arena.myapp.services.ServiceReclamation;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.util.Resources;
@@ -26,6 +22,7 @@ import static java.lang.Integer.parseInt;
 import java.util.Map;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.services.ServiceCategoryReclamation;
+import com.codename1.components.SpanLabel;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -119,5 +116,4 @@ public class AddReclamationForm extends BaseForm {
         
         addAll(tfTitre , tfMessage,cbCategoriesReclamation, btnValider);
     }
-    
 }

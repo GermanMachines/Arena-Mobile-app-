@@ -5,23 +5,20 @@
  */
 package com.arena.myapp.gui;
 
+import com.arena.myapp.entities.Avis;
+import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.entities.Reclamation;
-import com.arena.myapp.entities.User;
 import com.arena.myapp.services.ServiceReclamation;
-import com.arena.myapp.services.UserService;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.Command;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
-import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.plaf.Style;
-import static com.codename1.ui.plaf.Style.MARGIN_UNIT;
 import com.codename1.ui.util.Resources;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -30,80 +27,42 @@ import java.util.Vector;
  *
  * @author DeathKnight
  */
-public class ListReclamationForm extends BaseForm {
-    public ListReclamationForm(Resources res, Reclamation c) {
-        
+public class SearchForm extends BaseForm {
+    SearchForm(Resources res,String search,Vector<Reclamation> recSearch){
         super(BoxLayout.y());
-        System.out.println("here");
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
-        tb.setTitle("Liste des reclamations");
+        tb.setTitle("Search Reclamation");
         getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
-
-       
-
-        ServiceReclamation as = new ServiceReclamation();
-        ArrayList<Reclamation> list = as.affichageReclamationsFront();
-    
-
-        {
-          Container c1 = new Container(BoxLayout.y());
-          
-            TextField searchTf = new TextField("","Search...");
-            Button searchBtn = new Button("serach");
-              Button resetBtn = new Button("reset");
-            Style searchTfStyle = searchTf.getAllStyles();
-            searchTfStyle.setMarginTop(4);
-            searchTfStyle.setMarginLeft(4);
-            c1.add(searchTf);
-            c1.add(searchBtn);
-            c1.add(resetBtn);
-             add(c1);
-             searchBtn.addActionListener(e -> {
-               
-                    Vector<Reclamation> recSearch;
-                    String sr = searchTf.getText();
-                           recSearch = as.search(searchTf.getText());
-                            
-                        
-                           
-
-                            refreshTheme();
-                            new SearchForm(res,sr,recSearch).show();
-                        }
-
-                    
-                    );
-             resetBtn.addActionListener(e -> {
-                  refreshTheme();
-                  new ListReclamationForm(res,c);
-             });
-
-      
-
-         
-             
-           
-            for (Reclamation a : list) {
+         ServiceReclamation as = new ServiceReclamation();
+            Vector<Reclamation> list = as.search(search);
+            Button resetBtn = new Button("Reset");
+               add(resetBtn);
+            if(recSearch.isEmpty()){
+                 SpanLabel message = new SpanLabel("Coudlnt find : "+search);
+                 add(message);
+                 return;
+            }
+    for (Reclamation a : list) {
              Container c3 = new Container(BoxLayout.y());
                
 
                 SpanLabel cat = new SpanLabel("Titre :" + a.getTitre());
                 SpanLabel cat1 = new SpanLabel("Message :" + a.getMessage());
-                SpanLabel cat2 = new SpanLabel("id category :" + a.getCategoryReclamationId());
+         //       SpanLabel cat2 = new SpanLabel("id category :" + a.getCategoryReclamationId());
                 SpanLabel cat6 = new SpanLabel("nom category :" + a.getNomCategory());
                 SpanLabel cat3 = new SpanLabel("Date :" + a.getDate());
                 SpanLabel cat4 = new SpanLabel("Etat :" + a.getEtat());
-                SpanLabel cat5 = new SpanLabel("id rec :" + a.getId());
+            //    SpanLabel cat5 = new SpanLabel("id rec :" + a.getId());
              
  
                 c3.add(cat);
                 c3.add(cat1);
-                c3.add(cat2);
+              //  c3.add(cat2);
                 c3.add(cat3);
                 c3.add(cat4);
-                c3.add(cat5);
+               // c3.add(cat5);
                 c3.add(cat6);
         
 
@@ -154,11 +113,14 @@ public class ListReclamationForm extends BaseForm {
                    
                     );
 
-        
-
-
-                System.out.println("");
-                add(c3);
+      
+         
+            resetBtn.addActionListener(e -> {
+                   refreshTheme();
+                   Reclamation c = new Reclamation();
+                  new ListReclamationForm(res,c).show();
+            });
+                 add(c3);
                
             }
             
@@ -168,4 +130,4 @@ public class ListReclamationForm extends BaseForm {
     }
 
     
-}
+
