@@ -24,6 +24,7 @@ package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
+import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.entities.Reclamation;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.ui.Component;
@@ -83,6 +84,7 @@ public class BaseForm extends Form {
      Equipe b = new Equipe();
      Reclamation r = new Reclamation();
      CategoryReclamation c = new CategoryReclamation();
+     Jeux j = new Jeux();
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -98,5 +100,8 @@ public class BaseForm extends Form {
            // tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
        // tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
        // tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
+           tb.addMaterialCommandToSideMenu("Ajout Jeux", FontImage.MATERIAL_UPDATE, e -> new AddJeuxForm(res).show());
+           tb.addMaterialCommandToSideMenu("Liste Jeux", FontImage.MATERIAL_LIST, e -> new ListJeuxForm(res,j).show());
+           
     }
 }

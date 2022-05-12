@@ -15,12 +15,16 @@ import com.codename1.ui.Button;
 import com.codename1.ui.Command;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
+import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Style;
+import static com.codename1.ui.plaf.Style.MARGIN_UNIT;
 import com.codename1.ui.util.Resources;
 import java.util.ArrayList;
+import java.util.Vector;
 
 /**
  *
@@ -41,13 +45,42 @@ public class ListReclamationForm extends BaseForm {
 
         ServiceReclamation as = new ServiceReclamation();
         ArrayList<Reclamation> list = as.affichageReclamations();
-        System.out.println(list);
+    
 
         {
+          Container c1 = new Container(BoxLayout.y());
+          
+            TextField searchTf = new TextField("","Search...");
+            Button searchBtn = new Button("serach");
+            Style searchTfStyle = searchTf.getAllStyles();
+            searchTfStyle.setMarginTop(4);
+            searchTfStyle.setMarginLeft(4);
+            c1.add(searchTf);
+            c1.add(searchBtn);
+             searchBtn.addActionListener(e -> {
+               
+                    Vector<Reclamation> recSearch;
+                          // recSearch = as.search(searchTf.getText());
 
+                        
+                            //status.setIcon(res.getImage("done.png").scaledSmallerRatio(Display.getInstance().getDisplayWidth()/10, Display.getInstance().getDisplayWidth()/15));
+
+
+                            refreshTheme();
+                         //   new ListReclamationForm(res,a).show();
+                        }
+
+                    
+                    );
+
+      
+
+         
+             
+            add(c1);
             for (Reclamation a : list) {
-
-                Container c3 = new Container(BoxLayout.y());
+             Container c3 = new Container(BoxLayout.y());
+               
 
                 SpanLabel cat = new SpanLabel("Titre :" + a.getTitre());
                 SpanLabel cat1 = new SpanLabel("Message :" + a.getMessage());
@@ -58,12 +91,6 @@ public class ListReclamationForm extends BaseForm {
                 SpanLabel cat5 = new SpanLabel("id rec :" + a.getId());
              
  
-
-                
-
-                
-                
-
                 c3.add(cat);
                 c3.add(cat1);
                 c3.add(cat2);
@@ -124,10 +151,10 @@ public class ListReclamationForm extends BaseForm {
 
 
                 System.out.println("");
-
                 add(c3);
-
+               
             }
+            
 
         }
 

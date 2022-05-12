@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 
 /**
@@ -123,7 +124,7 @@ public class ServiceReclamation {
                         int idrec =(int) Float.parseFloat(obj.get("id").toString());
                   
                         System.out.println(idrec);
-                         re.setId(idrec);
+                        re.setId(idrec);
                         re.setCategoryReclamationId((int) Float.parseFloat(re.getHm().get("id").toString()));
                         re.setNomCategory(re.getHm().get("nom").toString());
                       
@@ -258,6 +259,36 @@ public class ServiceReclamation {
         
     }
     
+    
+  
+    /*//search 
+    public Vector<Reclamation> search(String search) {
+       
+       /* 
+     //   String url = Statics.BASE_URL +"/reclamation/updateReclamationJSON";
+         String url = "http://localhost:8000/reclamation/json/search?search=mmm";
+          System.out.println(url);
+         req.setPost(false);
+         req.setUrl(url);
+         
+         req.addArgument("search", search);
+        System.out.println("req data :" + req.getRequestBody());
+        
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                  String str = new String(req.getResponseData());//Reponse json hethi lyrinaha fi navigateur 9bila
+               System.out.println("data == "+str);
+                resultOk = req.getResponseCode() == 200 ;  // Code response Http 200 ok
+                req.removeResponseListener(this);
+            }
+        });
+        
+    NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
+    return resultOk;
+       
+    }
+    */ 
 
     
 }

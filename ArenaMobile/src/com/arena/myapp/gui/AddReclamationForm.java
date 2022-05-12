@@ -41,14 +41,13 @@ public class AddReclamationForm extends BaseForm {
     return entry;
 }
     public AddReclamationForm(Resources res) {
-                super(BoxLayout.y());
+               
 //        Toolbar tb = new Toolbar(true);
 //        setToolbar(tb);
 //      tb.setTitle("Liste des users");
-//     getContentPane().setScrollVisible(true);
+//     getContentPane().setScrollVisible(true)
+        super(BoxLayout.y());
         super.addSideMenu(res);
-
-      
         setTitle("Ajouter une Reclamation");
         setLayout(BoxLayout.y());
         
