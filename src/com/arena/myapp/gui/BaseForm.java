@@ -26,7 +26,6 @@ import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
-import com.arena.myapp.entities.Post;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.codename1.components.ScaleImageLabel;
@@ -43,7 +42,6 @@ import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.arena.myapp.entities.User;
-import com.arena.myapp.utils.Session;
 
 
 
@@ -59,8 +57,6 @@ public class BaseForm extends Form {
     public BaseForm(String title, Layout contentPaneLayout) {
         super(title, contentPaneLayout);
     }
-    
-   
     
     
     public Component createLineSeparator() {
@@ -79,24 +75,20 @@ public class BaseForm extends Form {
 
     protected void addSideMenu(Resources res) {
         Toolbar tb = getToolbar();
-        Image img = res.getImage("profile-background.jpg");
-        if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
-            img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
-        }
-        ScaleImageLabel sl = new ScaleImageLabel(img);
-        sl.setUIID("BottomPad");
-       sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
+//        Image img = res.getImage("profile-background.jpg");
+//        if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
+//            img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
+//        }
+//        ScaleImageLabel sl = new ScaleImageLabel(img);
+//        sl.setUIID("BottomPad");
+//       sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
 //        User a = new User();
      Equipe b = new Equipe();
      Reclamation r = new Reclamation();
      CategoryReclamation c = new CategoryReclamation();
      Jeux j = new Jeux();
      Tournois t = new Tournois();
-     User u = new User();
-      Avis a = new Avis();
-      Post p = new Post();
-      
-      
+     Avis a = new Avis();
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -104,14 +96,9 @@ public class BaseForm extends Form {
 //        ));
          tb.addMaterialCommandToSideMenu("Ajout user", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new AjoutUser(res).show());
          tb.addMaterialCommandToSideMenu("Ajout equipe", FontImage.MATERIAL_UPDATE, e -> new AddTeamForm(res).show());
-             //   tb.addMaterialCommandToSideMenu("Voir Profile", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new listUserForm(res,u).show());
-
-                    tb.addMaterialCommandToSideMenu("Liste users", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new ListUsers(res,u).show());
-
        //  tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_ERROR, e -> new addReclaForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Equipe", FontImage.MATERIAL_LIST, e -> new ListTeamForm(res,b).show());
 
-       
            // tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
        // tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
        // tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
@@ -120,18 +107,15 @@ public class BaseForm extends Form {
            tb.addMaterialCommandToSideMenu("Ajout Tournois", FontImage.MATERIAL_UPDATE, e -> new AddTournoisForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Tournois", FontImage.MATERIAL_LIST, e -> new ListTournoisForm(res,t).show());
            
-                      
+           
            tb.addMaterialCommandToSideMenu("Liste Avis", FontImage.MATERIAL_LIST, e -> new ListAvisForm(res,a).show());
              tb.addMaterialCommandToSideMenu("Liste Categories", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
-          tb.addMaterialCommandToSideMenu("Add Category reclamation", FontImage.MATERIAL_LIST, e -> new AddCategoryReclamation(res).show());
+                      
            tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
            
+            tb.addMaterialCommandToSideMenu("Daly", FontImage.MATERIAL_LIST, e ->   new AjoutPostForm(res).show());
+
            
-                   tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
-        tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
-        tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
-           
-   
     }
 }

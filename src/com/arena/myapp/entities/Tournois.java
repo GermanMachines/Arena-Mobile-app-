@@ -7,7 +7,6 @@ package com.arena.myapp.entities;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.LinkedHashMap;
 /**
  *
  * @author tarek
@@ -17,45 +16,30 @@ public class Tournois {
    private String titre;
    private String  dateDebut;
     private String  dateFin;
-    LinkedHashMap<String,Object> hm;
       //private Date  dateDebut;
     //private Date  dateFin;
-
+   
     private String descriptiontournois;
     private String type;
     
      private int nbrparticipants;
-             private int idjeux;
-
      private String winner;
      private String status;
-    private String nomjeux;
+        private int idjeux;
+                private Jeux jeux;
 
-    public String getNomjeux() {
-        return nomjeux;
+
+    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status) {
+        this.idtournois = idtournois;
+        this.titre = titre;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.descriptiontournois = descriptiontournois;
+        this.type = type;
+        this.nbrparticipants = nbrparticipants;
+        this.winner = winner;
+        this.status = status;
     }
-
-    public void setNomjeux(String nomjeux) {
-        this.nomjeux = nomjeux;
-    }
-
-    
-    
-    
-    
-//    
-//
-//    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status) {
-//        this.idtournois = idtournois;
-//        this.titre = titre;
-//        this.dateDebut = dateDebut;
-//        this.dateFin = dateFin;
-//        this.descriptiontournois = descriptiontournois;
-//        this.type = type;
-//        this.nbrparticipants = nbrparticipants;
-//        this.winner = winner;
-//        this.status = status;
-//    }
                 
                 
 //         public Tournois(int idtournois, String titre, Date dateDebut, Date dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status) {
@@ -80,18 +64,18 @@ public class Tournois {
                 
                 
                 
-//
-//    public Tournois(String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux) {
-//        this.titre = titre;
-//        this.dateDebut = dateDebut;
-//        this.dateFin = dateFin;
-//        this.descriptiontournois = descriptiontournois;
-//        this.type = type;
-//        this.nbrparticipants = nbrparticipants;
-//        this.winner = winner;
-//        this.status = status;
-//        this.idjeux = idjeux;
-//    }
+
+    public Tournois(String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux) {
+        this.titre = titre;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.descriptiontournois = descriptiontournois;
+        this.type = type;
+        this.nbrparticipants = nbrparticipants;
+        this.winner = winner;
+        this.status = status;
+        this.idjeux = idjeux;
+    }
 
 //             public Tournois(String titre, Date dateDebut, Date dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux) {
 //        this.titre = titre;
@@ -113,20 +97,20 @@ public class Tournois {
                 
                 
                 
-//                
-//                
-//    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux) {
-//        this.idtournois = idtournois;
-//        this.titre = titre;
-//        this.dateDebut = dateDebut;
-//        this.dateFin = dateFin;
-//        this.descriptiontournois = descriptiontournois;
-//        this.type = type;
-//        this.nbrparticipants = nbrparticipants;
-//        this.winner = winner;
-//        this.status = status;
-//        this.idjeux = idjeux;
-//    }
+                
+                
+    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux) {
+        this.idtournois = idtournois;
+        this.titre = titre;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.descriptiontournois = descriptiontournois;
+        this.type = type;
+        this.nbrparticipants = nbrparticipants;
+        this.winner = winner;
+        this.status = status;
+        this.idjeux = idjeux;
+    }
 
                 
                 
@@ -142,16 +126,34 @@ public class Tournois {
 //        this.status = status;
 //        this.idjeux = idjeux;
 //    }           
-
-    public LinkedHashMap<String, Object> getHm() {
-        return hm;
-    }
-
-    public void setHm(LinkedHashMap<String, Object> hm) {
-        this.hm = hm;
-    }
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, Jeux jeux) {
+        this.idtournois = idtournois;
+        this.titre = titre;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.descriptiontournois = descriptiontournois;
+        this.type = type;
+        this.nbrparticipants = nbrparticipants;
+        this.winner = winner;
+        this.status = status;
+        this.jeux = jeux;
+    }
+
+ 
+
+ 
+    
 //        public Tournois(int idtournois, String titre, Date dateDebut, Date dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status, Jeux jeux) {
 //        this.idtournois = idtournois;
 //        this.titre = titre;
@@ -164,69 +166,18 @@ public class Tournois {
 //        this.status = status;
 //        this.jeux = jeux;
 //    }
-
-    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, LinkedHashMap<String, Object> hm, String descriptiontournois, String type, int nbrparticipants, String winner, String status, int idjeux, String nomjeux) {
-        this.idtournois = idtournois;
-        this.titre = titre;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.hm = hm;
-        this.descriptiontournois = descriptiontournois;
-        this.type = type;
-        this.nbrparticipants = nbrparticipants;
-        this.winner = winner;
-        this.status = status;
-        this.idjeux = idjeux;
-        this.nomjeux = nomjeux;
+    
+    
+    
+    
+    
+    public Jeux getJeux() {
+        return jeux;
     }
 
-    public Tournois(String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, String winner, String status) {
-        this.titre = titre;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.descriptiontournois = descriptiontournois;
-        this.type = type;
-        this.nbrparticipants = nbrparticipants;
-        this.winner = winner;
-        this.status = status;
+    public void setJeux(Jeux jeux) {
+        this.jeux = jeux;
     }
-    
-    
- //use this when getting data from db
-    public Tournois(int idtournois, String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, int idjeux, String winner, String status) {
-        this.idtournois = idtournois;
-        this.titre = titre;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.descriptiontournois = descriptiontournois;
-        this.type = type;
-        this.nbrparticipants = nbrparticipants;
-             this.idjeux = idjeux;
-        this.winner = winner;
-        this.status = status;
-   
-    }
-
-    public Tournois(String titre, String dateDebut, String dateFin, String descriptiontournois, String type, int nbrparticipants, int idjeux, String winner, String status) {
-        this.titre = titre;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
-        this.descriptiontournois = descriptiontournois;
-        this.type = type;
-        this.nbrparticipants = nbrparticipants;
-        this.idjeux = idjeux;
-        this.winner = winner;
-        this.status = status;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
 
     
@@ -344,11 +295,9 @@ public class Tournois {
 
     @Override
     public String toString() {
-        return "Tournois{" + "idtournois=" + idtournois + ", titre=" + titre + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", descriptiontournois=" + descriptiontournois + ", type=" + type + ", nbrparticipants=" + nbrparticipants + ", idjeux=" + idjeux + ", winner=" + winner + ", status=" + status + '}';
+        return "Tournois{" + "idtournois=" + idtournois + ", titre=" + titre + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", descriptiontournois=" + descriptiontournois + ", type=" + type + ", nbrparticipants=" + nbrparticipants + ", winner=" + winner + ", status=" + status + ", Jeux=" + idjeux + '}';
     }
 
- 
-    
 
     
     

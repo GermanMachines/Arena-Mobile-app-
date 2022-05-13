@@ -59,7 +59,8 @@ public class ServiceReclamation {
         String url =Statics.BASE_URL+"/reclamation/json/addReclamationJSON";
         req.setPost(false);
         req.setUrl(url);
-        req.addArgument("iduser", "47");
+        int iduser=48;
+        req.addArgument("iduser", "48");
         req.addArgument("idcategoryreclamation", Integer.toString(reclamation.getCategoryReclamationId()));
         req.addArgument("titre", reclamation.getTitre());
         req.addArgument("message", reclamation.getMessage());
@@ -116,7 +117,7 @@ public class ServiceReclamation {
                         
                         String message = obj.get("message").toString();
                         //float idUser = Float.parseFloat(obj.get("iduser").toString());
-                        float idUser = 47;
+                        float idUser = 48;
                         
                        // re.setCategoryReclamationId(idCategoryReclaamtion);
                         re.setTitre(titre);
@@ -162,7 +163,7 @@ public class ServiceReclamation {
      public ArrayList<Reclamation>affichageReclamationsFront() {
         ArrayList<Reclamation> result = new ArrayList<>();
         int iduser = 48;
-        String url = "http://127.0.0.1:8000/reclamation/getReclamationsJSONFront?iduser="+iduser;
+        String url = Statics.BASE_URL+"/reclamation/getReclamationsJSONFront?iduser="+iduser;
         System.out.println(url);
         req.setPost(false);
         req.setUrl(url);
@@ -249,7 +250,7 @@ public class ServiceReclamation {
     
     public Reclamation DetailRecalamation( int id , Reclamation reclamation) {
         
-        String url = "http://127.0.0.1:8000/getReclamationJSON/"+id;
+        String url = Statics.BASE_URL+"/getReclamationJSON/"+id;
         req.setUrl(url);
         
         String str  = new String(req.getResponseData());
@@ -293,7 +294,7 @@ public class ServiceReclamation {
     //Delete 
     public boolean deleteReclamation(int id ) {
         System.out.println(id);
-        String url ="http://127.0.0.1:8000/reclamation/deleteReclamationJSON?id="+id;
+        String url = Statics.BASE_URL +"/reclamation/deleteReclamationJSON?id="+id;
         
         req.setUrl(url);
         
@@ -348,7 +349,7 @@ public class ServiceReclamation {
     public Vector<Reclamation> search(String search) {
        Vector<Reclamation> result = new Vector<>();
      //   String url = Statics.BASE_URL +"/reclamation/updateReclamationJSON";
-         String url = "http://127.0.0.1:8000/reclamation/json/search?search="+search;
+         String url = "http://localhost:8000/reclamation/json/search?search="+search;
           System.out.println(url);
          req.setPost(false);
          req.setUrl(url);
@@ -384,7 +385,7 @@ public class ServiceReclamation {
                         
                         String message = obj.get("message").toString();
                         //float idUser = Float.parseFloat(obj.get("iduser").toString());
-                        float idUser = 47;
+                        float idUser = 48;
                         
                        // re.setCategoryReclamationId(idCategoryReclaamtion);
                         re.setTitre(titre);

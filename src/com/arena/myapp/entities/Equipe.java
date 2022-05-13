@@ -9,7 +9,7 @@ package com.arena.myapp.entities;
  *
  * @author LENOVO
  */
-    public class Equipe {
+public class Equipe {
     
      private int idequipe;
     private String nom,logo;
@@ -73,8 +73,7 @@ package com.arena.myapp.entities;
     public void setRegion(String region) {
         this.region = region;
     }
-
-
+    
     
     
 }

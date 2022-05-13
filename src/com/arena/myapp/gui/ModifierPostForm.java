@@ -15,9 +15,9 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
-import com.arena.myapp.entities.Post;
 import com.arena.myapp.services.ServicePost;
-
+import com.arena.myapp.entities.Post;
+import com.arena.myapp.utils.Statics;
 /**
  *
  * @author HP

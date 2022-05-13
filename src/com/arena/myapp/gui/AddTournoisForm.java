@@ -5,16 +5,12 @@
  */
 package com.arena.myapp.gui;
 
-import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
-import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.arena.myapp.entities.User;
 import com.arena.myapp.services.EquipeService;
 import com.arena.myapp.services.JeuxService;
-import com.arena.myapp.services.ServiceCategoryReclamation;
-import com.arena.myapp.services.ServiceReclamation;
 import com.arena.myapp.services.TournoisService;
 import com.arena.myapp.services.UserService;
 import com.codename1.components.ScaleImageLabel;
@@ -22,7 +18,6 @@ import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;
-import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
 import com.codename1.ui.Component;
 import static com.codename1.ui.Component.BOTTOM;
@@ -51,34 +46,27 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import static java.lang.Integer.parseInt;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
 
 /**
  *
  * @author LENOVO
  */
 public class AddTournoisForm extends BaseForm {
-    private Map<String, Object> createListEntry(String name, int id) {
-    Map<String, Object> entry = new HashMap<>();
-    entry.put(name, id);
-  //  entry.put(name, id);
-    return entry;
-}
-    public AddTournoisForm(Resources res) {
-               
+
+       public AddTournoisForm (Resources res) {
+        
+          super(BoxLayout.y());
 //        Toolbar tb = new Toolbar(true);
 //        setToolbar(tb);
 //      tb.setTitle("Liste des users");
-//     getContentPane().setScrollVisible(true)
-        super(BoxLayout.y());
+//     getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
-        setTitle("Ajouter une Tournois");
+
+      
+        setTitle("Ajouter un Tournois ");
         setLayout(BoxLayout.y());
         
-     
-          TextField tfNom = new TextField("","Titre ");
+        TextField tfNom = new TextField("","Titre ");
          tfNom.setUIID("TextFieldBlack"); 
          
         TextField DateDebut = new TextField("","DateDebut");
@@ -104,26 +92,7 @@ public class AddTournoisForm extends BaseForm {
            TextField idjeux = new TextField("","idjeux");
          idjeux.setUIID("TextFieldBlack");
          
-         
-         
-         
-         
-         
-         Jeux cr = new Jeux("test","category");
-       /*  ComboBox<Map<String, Object>> cobmo = new ComboBox<>(
-                    createListEntry("A Game of Thrones", "1996"),
-                 
-         
-         );*/
-       JeuxService scr = new JeuxService();
-       Vector<Jeux> vcr = scr.getCategoriesJeuxVector();
-        ComboBox<Jeux> cbCategoriesReclamation;
- 
-      
-        //cbCategoriesReclamation.setUIID("TextFieldBlack"); 
-        cbCategoriesReclamation = new ComboBox<>(vcr);
-       
-     
+
       
         
        
@@ -134,43 +103,35 @@ public class AddTournoisForm extends BaseForm {
         btnValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                if (tfNom.getText().length()==0)
+                if ((tfNom.getText().length()==0))
                     Dialog.show("Alert", "Please fill all the fields", new Command("OK"));
                 
              else
                 {
-                    try {
+             
                       
                         Tournois a;
-
-                        System.out.println("selected "+cbCategoriesReclamation.getModel().getSelectedIndex());
-
+                        a = new Tournois(tfNom.getText() , DateDebut.getText(), DateFin.getText() , descriptiontournois.getText(),type.getText(),parseInt(nbrparticipants.getText()) ,winner.getText() , status.getText() ,parseInt(idjeux.getText())  );
                         
-                        int catrec = cbCategoriesReclamation.getSelectedItem().getIdjeux();
-                        a = new Tournois( tfNom.getText() , DateDebut.getText() ,DateFin.getText() ,  descriptiontournois.getText(), type.getText(), parseInt(nbrparticipants.getText()),catrec ,winner.getText() , status.getText()   );
-                        
-                        TournoisService.getInstance().addTournois(a);
+                        if( TournoisService.getInstance().addTournois(a)){
                             Dialog.show("Success","Connection accepted",new Command("OK"));
                          ToastBar.Status status = ToastBar.getInstance().createStatus();
                     status.setShowProgressIndicator(true);
-   //status.setIcon(res.getImage("done.png").scaledSmallerRatio(Display.getInstance().getDisplayWidth()/10, Display.getInstance().getDisplayWidth()/15));
                               status.setMessage("Tournois ajouté avec succes");
                                                   status.setExpires(10000);   
                       status.show();
-                   //   new listEquipeForm(res,a).show();
-        
+                        }else
+                            Dialog.show("ERROR", "Server error", new Command("OK"));
                         
-                    } catch (NumberFormatException e) {
-                        Dialog.show("ERROR", "Status must be a number", new Command("OK"));
                     }
                     
                 }
                 
-                
-            }
         });    
         
-         addAll(tfNom , DateDebut , DateFin , descriptiontournois ,type , nbrparticipants ,cbCategoriesReclamation,  winner , status , btnValider);
-
-    }
+        
+        addAll(tfNom , DateDebut , DateFin , descriptiontournois , nbrparticipants ,  winner , status ,idjeux , btnValider);
+   
+     }
+    
 }

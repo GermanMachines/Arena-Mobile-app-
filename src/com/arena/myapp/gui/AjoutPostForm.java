@@ -28,8 +28,9 @@ import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
-import com.arena.myapp.entities.Post;
 import com.arena.myapp.services.ServicePost;
+import com.arena.myapp.entities.Post;
+import com.arena.myapp.utils.Statics;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**

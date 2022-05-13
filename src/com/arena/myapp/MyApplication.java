@@ -4,7 +4,6 @@ package com.arena.myapp;
 import com.arena.myapp.entities.User;
 import com.arena.myapp.gui.AddTeamForm;
 import com.arena.myapp.gui.AjoutUser;
-import com.arena.myapp.gui.LoginForm;
 import com.arena.myapp.gui.listUserForm;
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Display;
@@ -60,7 +59,7 @@ public class MyApplication {
             current.show();
             return;
         }
-      new LoginForm(theme).show();
+        new AddTeamForm(theme).show();
     }
 
     public void stop() {

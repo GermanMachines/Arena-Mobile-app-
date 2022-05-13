@@ -2,6 +2,7 @@
 
 <resource majorVersion="1" minorVersion="9" useXmlUI="false">
     <image name="activation-background.jpg"  />
+    <image name="back-logo.jpeg"  />
     <image name="confirmation-background.jpg"  />
     <image name="dog.jpg"  />
     <image name="facebook-logo.png" type="multi"  />

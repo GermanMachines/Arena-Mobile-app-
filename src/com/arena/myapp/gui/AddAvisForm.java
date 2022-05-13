@@ -51,13 +51,13 @@ public class AddAvisForm extends BaseForm{
              add(c1);
              rate.addActionListener(e -> {
                  
-                int score = cbRating.getModel().getSelectedIndex() +1;
+                int score = cbRating.getModel().getSelectedIndex();
                 String commentaire =tfCommentaire.getText();
                  int idJeux = j.getIdjeux();
                  System.out.println(score);
                  
                  
-                 Avis a = new Avis(score,commentaire,48,idJeux);
+                 Avis a = new Avis(score,commentaire,47,idJeux);
                  as.ajoutAvis(a);
              });
 }

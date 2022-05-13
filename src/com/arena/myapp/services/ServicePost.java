@@ -5,7 +5,6 @@
  */
 package com.arena.myapp.services;
 
-import com.arena.myapp.entities.Post;
 import com.codename1.components.ToastBar;
 import com.codename1.io.ConnectionRequest;
 
@@ -16,7 +15,7 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.events.ActionListener;
-import com.arena.myapp.services.ServicePost;
+import com.arena.myapp.entities.Post;
 import com.arena.myapp.utils.Statics;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +53,7 @@ public class ServicePost {
   
     public void ajoutPost(Post post) {
 
-        String url = Statics.BASE_URL + "post/ajouterpostMobile/new?titre=" + post.getTitre() + "&auteur=" + post.getAuteur() + "&imgPost=" + post.getImg_post()
+        String url = Statics.BASE_URL + "/post/ajouterpostMobile/new?titre=" + post.getTitre() + "&auteur=" + post.getAuteur() + "&imgPost=" + post.getImg_post()
                 + "&datePost=" + post.getDate_post() + "&rate=" + post.getRate();// aa sorry n3adi getId lyheya mech ta3 user ta3 reclamation
 
         req.setUrl(url);
@@ -71,7 +70,8 @@ public class ServicePost {
     public ArrayList<Post> AfficherPost() {
 
         ArrayList<Post> result = new ArrayList<>();
-        String url = Statics.BASE_URL + "post/s/AfficherPostMobile";
+        String url = Statics.BASE_URL + "/post/s/AfficherPostMobile";
+        System.out.println(url);
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -115,7 +115,7 @@ public class ServicePost {
     }
 
     public boolean modifierPost(Post post) {
-        String url = Statics.BASE_URL + "post/p/updatePostMobile/" + post.getId_post()
+        String url = Statics.BASE_URL + "/post/p/updatePostMobile/" + post.getId_post()
                 + "?titre=" + post.getTitre()
                 + "&auteur=" + post.getAuteur()
                 + "&imgPost=" + post.getImg_post()
@@ -140,7 +140,7 @@ public class ServicePost {
 
     public boolean deletePost(int idPost) {
         System.out.println(idPost);
-        String url = Statics.BASE_URL + "post/p/deletePostMobile/" + idPost;
+        String url = Statics.BASE_URL + "/post/p/deletePostMobile/" + idPost;
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

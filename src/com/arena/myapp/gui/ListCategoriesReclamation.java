@@ -82,7 +82,6 @@ public class ListCategoriesReclamation extends BaseForm{
                     ok.addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent evt) {
-                            System.out.println(a.getId());
                            if( as.deleteCategorieReclamation(a.getId())){
 
                             alert.dispose();

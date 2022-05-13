@@ -5,8 +5,6 @@
  */
 package com.arena.myapp.services;
 
-import com.arena.myapp.entities.Participation;
-import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.arena.myapp.utils.Statics;
 import com.codename1.io.CharArrayReader;
@@ -16,7 +14,6 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +53,7 @@ public class TournoisService {
            req.addArgument("nbrparticipants", Integer.toString(a.getNbrparticipants()));
            req.addArgument("Winner", a.getWinner());
            req.addArgument("status",a.getStatus());
-           req.addArgument("idjeux", Integer.toString(a.getIdjeux()));
+           req.addArgument("idjeux", Integer.toString(0));
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -100,7 +97,7 @@ public class TournoisService {
 
                  
                   a.setNbrparticipants(16);
-                  a.setWinner("NULL");
+                  a.setWinner(obj.get("winner").toString());
                    a.setStatus(obj.get("status").toString());
                   float idjeux = Float.parseFloat(obj.get("idjeux").toString());
 
@@ -140,106 +137,28 @@ public class TournoisService {
 
      
      
-//          public ArrayList<Tournois> AfficherTournois()
-//    {
-//
-//        ArrayList<Tournois> result = new ArrayList<>();
-//        String url = Statics.BASE_URL+"/tournois/s/AllTournois";
-//        req.setUrl(url);
-//        req.addResponseListener(new ActionListener<NetworkEvent>() {
-//            @Override
-//            public void actionPerformed(NetworkEvent evt) {
-//                
-//                JSONParser jsonp;
-//                jsonp = new JSONParser();
-//                
-//                try 
-//                {
-//                    Map<String,Object>mapCategorie = jsonp.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
-//                    List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapCategorie.get("root");
-//                    for(Map<String, Object> obj : ListOfMaps)
-//                    {
-//                        Tournois c = new Tournois();
-//                        float id = Float.parseFloat(obj.get("idtournois").toString());
-//                        String titre = obj.get("titre").toString();
-//                        String dateDebut = obj.get("dateDebut").toString();
-//                         String dateFin = obj.get("dateFin").toString(); 
-//                         
-//                        String descriptiontournois = obj.get("descriptiontournois").toString();
-//                        String type = obj.get("type").toString();
-//                        float nbrparticipants = Float.parseFloat(obj.get("nbrparticipants").toString());
-//                        String winner = obj.get("winner").toString();
-//                        String status = obj.get("status").toString();
-//                        
-//                     // float idjeux = Float.parseFloat(obj.get("idjeux").toString());
-//
-//
-//                        c.setIdtournois((int)id);
-//
-//                        c.setTitre(titre);
-//                        c.setDateDebut(dateDebut);
-//                        c.setDateFin(dateFin);
-//                        c.setDescriptiontournois(descriptiontournois);
-//                        c.setType(type);
-//
-//                        c.setNbrparticipants((int)nbrparticipants);
-//                        c.setWinner(winner);
-//                        c.setStatus(status);
-//                    //    c.setIdjeux((int) idjeux);
-//
-//                        result.add(c);
-//                        System.out.println(c.getTitre()+" "+c.getDateDebut()+ " " + c.getDateFin() + " " + c.getDescriptiontournois() +  " " + c.getType() +" " + c.getNbrparticipants() + " " + c.getWinner()+ " " + c.getStatus());
-//                    }
-//                }
-//                catch(Exception ex)
-//                {
-//                    ex.printStackTrace();
-//                }
-//
-//            }
-//        });
-//
-//        NetworkManager.getInstance().addToQueueAndWait(req);
-//        return result;
-//    
-//    } 
-     
-     
-     
-         //affichage
-    
-    public ArrayList<Tournois>AfficherTournois() {
+          public ArrayList<Tournois> AfficherTournois()
+    {
+
         ArrayList<Tournois> result = new ArrayList<>();
-        
         String url = Statics.BASE_URL+"/tournois/s/AllTournois";
-        System.out.println(url);
-        req.setPost(false);
         req.setUrl(url);
-        
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
-                JSONParser jsonp ;
+                
+                JSONParser jsonp;
                 jsonp = new JSONParser();
                 
-                try {
-                    System.out.println(req.getResponseData());
-                    Map<String,Object>mapReclamations = jsonp.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
-                    
-                    List<Map<String,Object>> listOfMaps = (List<Map<String,Object>>)  mapReclamations.get("root");
-                    
-                    for(Map<String, Object> obj : listOfMaps) {
-                        Tournois re = new Tournois();
-                        System.out.println(obj);
-                        //dima id fi codename one float 5outhouha
-                        //iduser?
-                        //JSONParser parser = new JSONParser(Integer.toString(obj.get("idcategoryreclamation")));
-                      
-                        re.setHm((LinkedHashMap<String, Object>) obj.get("idjeux"));
-
-                         
-                         float id = Float.parseFloat(obj.get("idtournois").toString());
-                    String titre = obj.get("titre").toString();
+                try 
+                {
+                    Map<String,Object>mapCategorie = jsonp.parseJSON(new CharArrayReader(new String(req.getResponseData()).toCharArray()));
+                    List<Map<String,Object>> ListOfMaps = (List<Map<String,Object>>) mapCategorie.get("root");
+                    for(Map<String, Object> obj : ListOfMaps)
+                    {
+                        Tournois c = new Tournois();
+                        float id = Float.parseFloat(obj.get("idtournois").toString());
+                        String titre = obj.get("titre").toString();
                         String dateDebut = obj.get("dateDebut").toString();
                          String dateFin = obj.get("dateFin").toString(); 
                          
@@ -247,45 +166,40 @@ public class TournoisService {
                         String type = obj.get("type").toString();
                         float nbrparticipants = Float.parseFloat(obj.get("nbrparticipants").toString());
                         String winner = obj.get("winner").toString();
-
                         String status = obj.get("status").toString();
+                     // float idjeux = Float.parseFloat(obj.get("idjeux").toString());
 
-                       
 
-                        re.setTitre(titre);
-                        re.setDateDebut(dateDebut);
-                        re.setDateFin(dateFin);
-                        re.setDescriptiontournois(descriptiontournois);
-                        re.setType(type);
+                        c.setIdtournois((int)id);
+                        //c.setProduit(produit.getId());
+                        //c.setQuantite((int)quantite);
+                        c.setTitre(titre);
+                        c.setDateDebut(dateDebut);
+                        c.setDateFin(dateFin);
+                        c.setDescriptiontournois(descriptiontournois);
+                        c.setType(type);
 
-                        re.setNbrparticipants((int)nbrparticipants);
-                        re.setWinner(winner);
-                        re.setStatus(status);
-                           
-                        re.setIdtournois((int)id);
-                           
-                        re.setIdjeux((int) Float.parseFloat(re.getHm().get("idjeux").toString()));
-                        re.setNomjeux(re.getHm().get("nomjeux").toString());
+                        c.setNbrparticipants((int)nbrparticipants);
+                        c.setWinner(winner);
+                        c.setStatus(status);
+                    //    c.setIdjeux((int) idjeux);
 
-                        result.add(re);
-                       
-                    
+                        result.add(c);
+                        System.out.println(c.getTitre()+" "+c.getDateDebut()+ " " + c.getDateFin() + " " + c.getDescriptiontournois() +  " " + c.getType() +" " + c.getNbrparticipants() + " " + c.getWinner()+ " " + c.getStatus());
                     }
-                    
-                }catch(Exception ex) {
-                    
+                }
+                catch(Exception ex)
+                {
                     ex.printStackTrace();
                 }
-            
+
             }
         });
-        
-      NetworkManager.getInstance().addToQueueAndWait(req);//execution ta3 request sinon yet3ada chy dima nal9awha
 
+        NetworkManager.getInstance().addToQueueAndWait(req);
         return result;
-        
-        
-    }
+    
+    } 
           
      public boolean  Delete(int id){
        String url = Statics.BASE_URL + "/tournois/s/deleteTournois/" +id;
@@ -325,33 +239,4 @@ public class TournoisService {
     return resultOK;
         
     }
-     
-     
-     
-     
-     public boolean addReservation(Participation r) {
-       
-        String url = Statics.BASE_URL + "/mobile/reservationEvenementM?id=" + r.getIdTournois() + "&equipe=" + r.getIdEquipe(); //création de l'URL
-        req.setUrl(url);// Insertion de l'URL de notre demande de connexion
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
-                req.removeResponseListener(this); //Supprimer cet actionListener
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        return resultOK;
-    }
-
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
 }

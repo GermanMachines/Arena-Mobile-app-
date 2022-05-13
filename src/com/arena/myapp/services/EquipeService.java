@@ -41,10 +41,7 @@ public class EquipeService {
     }
     
      public boolean addEquipe(Equipe a) {
-         System.out.println(a);
         String url = Statics.BASE_URL + "/AddTeammm?nom=" + a.getNom() + "&logo=" + a.getLogo()+ "&score=" + a.getScore() + "&region=" + a.getRegion() ; //création de l'URL
-        
-         System.out.println(url);
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override

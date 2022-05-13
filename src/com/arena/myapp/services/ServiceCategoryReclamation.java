@@ -47,7 +47,7 @@ public class ServiceCategoryReclamation {
     
        public void ajoutCategorieReclamation(CategoryReclamation cat) {
         System.out.println(cat);
-        String url ="http://127.0.0.1:8000/categoryreclamation/addCategorieReclamationJSON?nom="+cat.getNom();
+        String url =Statics.BASE_URL+"/categoryreclamation/addCategorieReclamationJSON?nom="+cat.getNom();
         req.setPost(false);
         req.setUrl(url);
         req.addArgument("nom",cat.getNom());
@@ -97,7 +97,7 @@ public ArrayList<CategoryReclamation> getCategoriesReclaamtion()
 
         ArrayList<CategoryReclamation> result = new ArrayList<>();
        // String url = Statics.BASE_URL+"jeux/s/AfficherJeuxMobile";
-         String url = "http://127.0.0.1:8000/categoryreclamation/categoriesReclamation/json"; 
+         String url = Statics.BASE_URL+"/categoryreclamation/categoriesReclamation/json"; 
          System.out.println(url);
           req.setUrl(url);
           req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -143,7 +143,7 @@ public Vector<CategoryReclamation> getCategoriesReclamationVector()
     {
 
         List<CategoryReclamation> result = new Vector<>();
-         String url = "http://127.0.0.1:8000/categoryreclamation/categoriesReclamation/json"; 
+         String url = Statics.BASE_URL+"/categoryreclamation/categoriesReclamation/json"; 
           req.setUrl(url);
           req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -187,29 +187,27 @@ public Vector<CategoryReclamation> getCategoriesReclamationVector()
     }
    public boolean deleteCategorieReclamation(int id ) {
         System.out.println(id);
-         req.setPost(false);
-          String url ="http:/127.0.0.1:8000/categoryreclamation/deleteCategorieReclamationJSON?id="+id;
-           System.out.println(id);
-           System.out.println(url);
+        String url = Statics.BASE_URL +"/categoryreclamation/deleteCategorieReclamationJSON?id="+id;
+        System.out.println("delete url : " +url);
         req.setUrl(url);
         
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
-                    
+                   
                     req.removeResponseCodeListener(this);
             }
         });
         
         NetworkManager.getInstance().addToQueueAndWait(req);
-        return  true;
+        return  resultOK;
     }
     public boolean modifierCategorieReclamation(CategoryReclamation cat) {
       
         
      //   String url = Statics.BASE_URL +"/reclamation/updateReclamationJSON";
    //  String url = "http://localhost:8000/categoryreclamation/updateCategorieReclamationJSON?id="+cat.getId()+"&nom="+cat.getNom() ;
-   String url= "http://127.0.0.1:8000/categoryreclamation/updateCategorieReclamationJSON?id="+cat.getId()+"&nom="+cat.getNom();
+   String url= "http://localhost:8000/categoryreclamation/updateCategorieReclamationJSON?id="+cat.getId()+"&nom="+cat.getNom();
     // String url = "http://localhost:8000/categoryreclamation/updateCategorieReclamationJSON?id=42&nom=cateogriiezz";
      System.out.println("update url : " +url);
          req.setPost(false);

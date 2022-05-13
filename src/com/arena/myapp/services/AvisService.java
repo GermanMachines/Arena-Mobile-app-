@@ -50,7 +50,7 @@ public class AvisService {
     
      public void ajoutAvis(Avis a) {
         System.out.println(a);
-        String url = "http://127.0.0.1:8000/avis/addAvisJSON";
+        String url =Statics.BASE_URL+"/avis/addAvisJSON";
         req.setPost(false);
         req.setUrl(url);
         req.addArgument("iduser", "48");
@@ -73,7 +73,7 @@ public class AvisService {
     public ArrayList<Avis>affichageAvis() {
         ArrayList<Avis> result = new ArrayList<>();
         
-        String url = "http://127.0.0.1:8000/avis/getAllAvisJSON";
+        String url = Statics.BASE_URL+"/avis/getAllAvisJSON";
         System.out.println(url);
         req.setPost(false);
         req.setUrl(url);
@@ -157,7 +157,7 @@ public class AvisService {
      public ArrayList<Avis>affichageAvisFront() {
         ArrayList<Avis> result = new ArrayList<>();
         int iduser = 48;
-        String url = "http://127.0.0.1:8000/avis/getAllAvisJSONFront?iduser="+iduser;
+        String url = Statics.BASE_URL+"/avis/getAllAvisJSONFront?iduser="+iduser;
         System.out.println(url);
         req.setPost(false);
         req.setUrl(url);
@@ -240,7 +240,7 @@ public class AvisService {
     }
      public boolean deleteAvis(int id ) {
         System.out.println(id);
-        String url = "http://127.0.0.1:8000/avis/deleteAvisJSON?id="+id;
+        String url = Statics.BASE_URL +"/avis/deleteAvisJSON?id="+id;
         
         req.setUrl(url);
         
