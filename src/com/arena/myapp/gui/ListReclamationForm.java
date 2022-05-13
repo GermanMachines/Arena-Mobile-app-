@@ -44,7 +44,7 @@ public class ListReclamationForm extends BaseForm {
        
 
         ServiceReclamation as = new ServiceReclamation();
-        ArrayList<Reclamation> list = as.affichageReclamations();
+        ArrayList<Reclamation> list = as.affichageReclamationsFront();
     
 
         {
@@ -52,32 +52,39 @@ public class ListReclamationForm extends BaseForm {
           
             TextField searchTf = new TextField("","Search...");
             Button searchBtn = new Button("serach");
+              Button resetBtn = new Button("reset");
             Style searchTfStyle = searchTf.getAllStyles();
             searchTfStyle.setMarginTop(4);
             searchTfStyle.setMarginLeft(4);
             c1.add(searchTf);
             c1.add(searchBtn);
+            c1.add(resetBtn);
+             add(c1);
              searchBtn.addActionListener(e -> {
                
                     Vector<Reclamation> recSearch;
-                          // recSearch = as.search(searchTf.getText());
-
+                    String sr = searchTf.getText();
+                           recSearch = as.search(searchTf.getText());
+                            
                         
-                            //status.setIcon(res.getImage("done.png").scaledSmallerRatio(Display.getInstance().getDisplayWidth()/10, Display.getInstance().getDisplayWidth()/15));
-
+                           
 
                             refreshTheme();
-                         //   new ListReclamationForm(res,a).show();
+                            new SearchForm(res,sr,recSearch).show();
                         }
 
                     
                     );
+             resetBtn.addActionListener(e -> {
+                  refreshTheme();
+                  new ListReclamationForm(res,c);
+             });
 
       
 
          
              
-            add(c1);
+           
             for (Reclamation a : list) {
              Container c3 = new Container(BoxLayout.y());
                

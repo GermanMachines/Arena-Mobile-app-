@@ -27,6 +27,9 @@ public class CategoryReclamation {
     public CategoryReclamation(){
         
     }
+    public CategoryReclamation(String nom){
+        this.nom = nom;
+    }
     public CategoryReclamation(int id ,String nom) {
         this.id = id;
         this.nom = nom;

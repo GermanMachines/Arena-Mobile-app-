@@ -78,7 +78,7 @@ public class ListJeuxForm extends BaseForm{
                 
 
                avisBtn.addActionListener(e -> {
-                     new AvisForm(res,a).show();
+                     new AddAvisForm(res,a).show();
                });
 
                 

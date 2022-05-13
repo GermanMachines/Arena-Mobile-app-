@@ -43,10 +43,10 @@ public class ListCategoriesReclamation extends BaseForm{
      
         public ListCategoriesReclamation(Resources res, CategoryReclamation c) {
         super(BoxLayout.y());
-        System.out.println("here");
+        System.out.println("List Categories Reclamation ");
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
-        tb.setTitle("Liste des reclamations");
+        tb.setTitle("List Categories Reclamation");
         getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
         
@@ -61,11 +61,11 @@ public class ListCategoriesReclamation extends BaseForm{
                 Container c3 = new Container(BoxLayout.y());
 
                 SpanLabel cat = new SpanLabel("Nom :" + a.getNom());
-                SpanLabel cat1 = new SpanLabel("Id :" + a.getId());
+              //  SpanLabel cat1 = new SpanLabel("Id :" + a.getId());
 
             
                 c3.add(cat);
-                c3.add(cat1);
+                //c3.add(cat1);
   
 
                 Button Delete = new Button("Delete");
@@ -74,7 +74,7 @@ public class ListCategoriesReclamation extends BaseForm{
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");
-                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette reclamation?");
+                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette categorie?");
                     alert.add(message);
                     Button ok = new Button("oui");
                     Button cancel = new Button(new Command("non"));
@@ -82,18 +82,20 @@ public class ListCategoriesReclamation extends BaseForm{
                     ok.addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent evt) {
-                       //     as.Delete(a.getId());
+                            System.out.println(a.getId());
+                           if( as.deleteCategorieReclamation(a.getId())){
 
                             alert.dispose();
                             ToastBar.Status status = ToastBar.getInstance().createStatus();
                             status.setShowProgressIndicator(true);
                             //status.setIcon(res.getImage("done.png").scaledSmallerRatio(Display.getInstance().getDisplayWidth()/10, Display.getInstance().getDisplayWidth()/15));
-                            status.setMessage("client SUPPRIMEE AVEC SUCCES");
+                            status.setMessage("Categorie SUPPRIMEE AVEC SUCCES");
                             status.setExpires(10000);
                             status.show();
 
                             refreshTheme();
-                   //         new listUserForm(res,a).show();
+                            new ListCategoriesReclamation(res,a).show();
+                          }
                         }
 
                     }
@@ -109,7 +111,7 @@ public class ListCategoriesReclamation extends BaseForm{
                     c3.add(Modifier);
                      Modifier.getAllStyles().setBgColor(0xF36B08);
               Modifier.addActionListener(e -> {
-               //     new UpdateUserForm(res,a).show();
+                    new UpdateCategorieReclamationForm(res,a).show();
                         } 
 
                    

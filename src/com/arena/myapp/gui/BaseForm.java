@@ -22,6 +22,7 @@
 
 package com.arena.myapp.gui;
 
+import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
@@ -91,7 +92,7 @@ public class BaseForm extends Form {
      Jeux j = new Jeux();
      Tournois t = new Tournois();
      User u = new User();
-      
+      Avis a = new Avis();
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -105,9 +106,8 @@ public class BaseForm extends Form {
 
        //  tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_ERROR, e -> new addReclaForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Equipe", FontImage.MATERIAL_LIST, e -> new ListTeamForm(res,b).show());
-           tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
-           tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
-           tb.addMaterialCommandToSideMenu("Liste Categories", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
+
+       
            // tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
        // tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
        // tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
@@ -115,6 +115,13 @@ public class BaseForm extends Form {
            tb.addMaterialCommandToSideMenu("Liste Jeux", FontImage.MATERIAL_LIST, e -> new ListJeuxForm(res,j).show());
            tb.addMaterialCommandToSideMenu("Ajout Tournois", FontImage.MATERIAL_UPDATE, e -> new AddTournoisForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Tournois", FontImage.MATERIAL_LIST, e -> new ListTournoisForm(res,t).show());
+           
+                      
+           tb.addMaterialCommandToSideMenu("Liste Avis", FontImage.MATERIAL_LIST, e -> new ListAvisForm(res,a).show());
+             tb.addMaterialCommandToSideMenu("Liste Categories", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
+          tb.addMaterialCommandToSideMenu("Add Category reclamation", FontImage.MATERIAL_LIST, e -> new AddCategoryReclamation(res).show());
+           tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
+           tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
 
     }
 }
