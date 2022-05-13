@@ -28,11 +28,12 @@ import java.util.Vector;
 public class UpdateReclamationForm extends BaseForm {
      Form current;
      UpdateReclamationForm(Resources res,Reclamation a) {
-            super(BoxLayout.y());
+           
 //        Toolbar tb = new Toolbar(true);
 //        current = this;
 //        setToolbar(tb);
 //        tb.setTitle("Liste des equipe");
+        super(BoxLayout.y());
         getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
         

@@ -293,7 +293,7 @@ public class ServiceReclamation {
     //Delete 
     public boolean deleteReclamation(int id ) {
         System.out.println(id);
-        String url = Statics.BASE_URL +"/reclamation/deleteReclamationJSON/"+id;
+        String url = Statics.BASE_URL +"/reclamation/deleteReclamationJSON?id="+id;
         
         req.setUrl(url);
         
