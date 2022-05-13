@@ -11,12 +11,17 @@ import com.arena.myapp.entities.User;
 import com.arena.myapp.services.EquipeService;
 import com.arena.myapp.services.JeuxService;
 import com.arena.myapp.services.UserService;
+import com.arena.myapp.utils.Session;
+import com.codename1.capture.Capture;
+import com.codename1.components.ImageViewer;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.io.Properties;
+import com.codename1.messaging.Message;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;
 import com.codename1.ui.Command;
@@ -45,15 +50,32 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
+import com.sun.mail.smtp.SMTPTransport;
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
+import java.util.Date;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
  * @author LENOVO
  */
 public class AddJeuxForm extends BaseForm {
-
+    
+    
+    
+Resources theme = UIManager.initFirstTheme("/theme");
+//    String selectedImage;
+//    
+//    
+//       Label imageLabel;
+//     ImageViewer imageIV;
+//    Button selectImageButton;
+    
+    
        public AddJeuxForm (Resources res) {
         
           super(BoxLayout.y());
@@ -62,7 +84,11 @@ public class AddJeuxForm extends BaseForm {
 //      tb.setTitle("Liste des users");
 //     getContentPane().setScrollVisible(true);
         super.addSideMenu(res);
-
+        
+        
+   //JeuxService.getInstance().sendMail(email, resourceObjectInstance);
+        
+        
       
         setTitle("Ajouter un Jeux ");
         setLayout(BoxLayout.y());
@@ -72,9 +98,11 @@ public class AddJeuxForm extends BaseForm {
         TextField tflogo = new TextField("","Image");
          tflogo.setUIID("TextFieldBlack");
 
-      
-        
-       
+//       imageLabel = new Label("Image : ");
+//        imageLabel.setUIID("labelDefault");
+//        selectImageButton = new Button("Ajouter une image");
+//         imageIV = new ImageViewer(theme.getImage("Logo.png").fill(500, 500));
+//       
       
 
         Button btnValider = new Button("Ajouter Jeux");
@@ -111,10 +139,17 @@ public class AddJeuxForm extends BaseForm {
    
 
         addAll(tfNom , tflogo, btnValider);
+        
+        
+            
+   
+       
+       
+        
      }
        
        
+
        
        
-    
 }

@@ -5,6 +5,7 @@
  */
 package com.arena.myapp.services;
 
+import com.arena.myapp.entities.Participation;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.arena.myapp.utils.Statics;
@@ -99,7 +100,7 @@ public class TournoisService {
 
                  
                   a.setNbrparticipants(16);
-                  a.setWinner(obj.get("winner").toString());
+                  a.setWinner("NULL");
                    a.setStatus(obj.get("status").toString());
                   float idjeux = Float.parseFloat(obj.get("idjeux").toString());
 
@@ -229,7 +230,7 @@ public class TournoisService {
                     
                     for(Map<String, Object> obj : listOfMaps) {
                         Tournois re = new Tournois();
-                        
+                        System.out.println(obj);
                         //dima id fi codename one float 5outhouha
                         //iduser?
                         //JSONParser parser = new JSONParser(Integer.toString(obj.get("idcategoryreclamation")));
@@ -246,6 +247,7 @@ public class TournoisService {
                         String type = obj.get("type").toString();
                         float nbrparticipants = Float.parseFloat(obj.get("nbrparticipants").toString());
                         String winner = obj.get("winner").toString();
+
                         String status = obj.get("status").toString();
 
                        
@@ -323,4 +325,33 @@ public class TournoisService {
     return resultOK;
         
     }
+     
+     
+     
+     
+     public boolean addReservation(Participation r) {
+       
+        String url = Statics.BASE_URL + "/mobile/reservationEvenementM?id=" + r.getIdTournois() + "&equipe=" + r.getIdEquipe(); //création de l'URL
+        req.setUrl(url);// Insertion de l'URL de notre demande de connexion
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this); //Supprimer cet actionListener
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+    }
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
 }

@@ -7,17 +7,27 @@ package com.arena.myapp.services;
 
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Jeux;
+import com.arena.myapp.utils.Session;
 import com.arena.myapp.utils.Statics;
 import com.codename1.io.CharArrayReader;
 import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.io.Properties;
+import com.codename1.messaging.Message;
 import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.util.Resources;
+import com.sun.mail.smtp.SMTPTransport;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+
 
 /**
  *
@@ -59,7 +69,7 @@ public class JeuxService {
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
         
-                sendMail("tarek.ayadi@esprit.tn");
+                
 
         
       return resultOK;
@@ -278,25 +288,10 @@ try {
         return (Vector<Jeux>) result;
     
     }
-          
      
      
-     public void sendMail(String Email) {
-        ConnectionRequest req = new ConnectionRequest();
-        req.setUrl("http://localhost:/Email/sendmail.php?email="+Email);
 
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
 
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-
-                byte[] data = (byte[]) evt.getMetaData();
-                String s = new String(data);
-                System.err.println("Mail Sent");
-            }
-        });
-
-        NetworkManager.getInstance().addToQueue(req);
-    }
+    
           
 }

@@ -6,6 +6,7 @@
 package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.Jeux;
+import com.arena.myapp.entities.Participation;
 import com.arena.myapp.entities.Tournois;
 import com.arena.myapp.services.JeuxService;
 import com.arena.myapp.services.TournoisService;
@@ -74,6 +75,34 @@ public class ListTournoisForm extends BaseForm{
                 Button Delete = new Button("Delete");
                 c3.add(Delete);
                  
+                Button Participer = new Button("Participer");
+                    c3.add(Participer);
+                    
+                   Participer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    Participation p = new Participation();
+                            p.setIdTournois(a.getIdtournois());
+                            p.setIdEquipe(94);
+                    TournoisService su = TournoisService.getInstance();
+                    su.addReservation(p);
+                    
+                    if (su.addReservation(p)) {
+                        Dialog.show("Reservation", "participation ajoute", new Command("OK"));
+
+                    } else {
+                        Dialog.show("Reservation", "Erreur de participation", new Command("OK"));
+                    }
+                }
+            });
+        
+                        
+                    
+                    
+                    
+                    
+                
+                
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");
