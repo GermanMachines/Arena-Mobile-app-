@@ -26,6 +26,7 @@ import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
+import com.arena.myapp.entities.Post;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.codename1.components.ScaleImageLabel;
@@ -78,13 +79,13 @@ public class BaseForm extends Form {
 
     protected void addSideMenu(Resources res) {
         Toolbar tb = getToolbar();
-//        Image img = res.getImage("profile-background.jpg");
-//        if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
-//            img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
-//        }
-//        ScaleImageLabel sl = new ScaleImageLabel(img);
-//        sl.setUIID("BottomPad");
-//       sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
+        Image img = res.getImage("profile-background.jpg");
+        if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
+            img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
+        }
+        ScaleImageLabel sl = new ScaleImageLabel(img);
+        sl.setUIID("BottomPad");
+       sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
 //        User a = new User();
      Equipe b = new Equipe();
      Reclamation r = new Reclamation();
@@ -93,6 +94,9 @@ public class BaseForm extends Form {
      Tournois t = new Tournois();
      User u = new User();
       Avis a = new Avis();
+      Post p = new Post();
+      
+      
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
 //                FlowLayout.encloseCenterBottom(
@@ -122,6 +126,12 @@ public class BaseForm extends Form {
           tb.addMaterialCommandToSideMenu("Add Category reclamation", FontImage.MATERIAL_LIST, e -> new AddCategoryReclamation(res).show());
            tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
-
+           
+           
+                   tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
+        tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
+        tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
+           
+   
     }
 }
