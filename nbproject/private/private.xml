@@ -4,17 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/UpdateTeamForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/ListTeamForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/utils/Statics.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/BaseForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/AddTeamForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/AjoutUser.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/entities/Equipe.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/MyApplication.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/gui/listUserForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/entities/User.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/ArenaMobile/src/com/arena/myapp/services/EquipeService.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/gui/AddTeamForm.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/gui/UpdateUserForm.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/gui/AddJeuxForm.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/services/EquipeService.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/gui/LoginForm.java</file>
+            <file>file:/C:/Users/tarek/OneDrive/Bureau/PIDEVARENA/Arena-Mobile-app-/src/com/arena/myapp/gui/AddReclamationForm.java</file>
         </group>
     </open-files>
 </project-private>
