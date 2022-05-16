@@ -23,10 +23,13 @@
 package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.Avis;
+import com.arena.myapp.entities.Category;
 import com.arena.myapp.entities.CategoryReclamation;
+import com.arena.myapp.entities.Commentaire;
 import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.entities.Post;
+import com.arena.myapp.entities.Product;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.Tournois;
 import com.codename1.components.ScaleImageLabel;
@@ -95,7 +98,13 @@ public class BaseForm extends Form {
      User u = new User();
       Avis a = new Avis();
       Post p = new Post();
-      
+       Commentaire com = new Commentaire();
+       
+       Category cat = new Category();
+         Product prod = new Product();
+       
+       
+       
       
 //        tb.addComponentToSideMenu(LayeredLayout.encloseIn(
 //                sl,
@@ -127,7 +136,31 @@ public class BaseForm extends Form {
            tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
            
-              tb.addMaterialCommandToSideMenu("Post", FontImage.MATERIAL_EXIT_TO_APP, e -> new AjoutPostForm(res).show());
+       //       tb.addMaterialCommandToSideMenu("Post", FontImage.MATERIAL_EXIT_TO_APP, e -> new AjoutPostForm(res).show());
+       
+       
+         tb.addMaterialCommandToSideMenu("Ajouter Post", FontImage.MATERIAL_LIST, e -> new AjoutPostForm(res).show());
+           tb.addMaterialCommandToSideMenu("Liste Post", FontImage.MATERIAL_LIST, e -> new ListPostForm(res,p).show());    
+       
+              
+           tb.addMaterialCommandToSideMenu("Liste Commentaire", FontImage.MATERIAL_LIST, e -> new ListCommentaireForm(res,com).show());    
+           
+           
+           
+           
+                    tb.addMaterialCommandToSideMenu("Ajouter Category produit", FontImage.MATERIAL_LIST, e -> new AddCategoryForm(res).show());
+                      tb.addMaterialCommandToSideMenu("Liste Category produits", FontImage.MATERIAL_LIST, e -> new ListCategoryForm(res,cat).show());    
+
+           
+                    
+                    tb.addMaterialCommandToSideMenu("Ajouter produit", FontImage.MATERIAL_LIST, e -> new AddProductForm(res).show());
+                      tb.addMaterialCommandToSideMenu("Liste produits", FontImage.MATERIAL_LIST, e -> new ListProductForm(res,prod).show());    
+
+           
+            
+           
+           
+
       
         tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
            

@@ -8,6 +8,7 @@ package com.arena.myapp.gui;
 import com.arena.myapp.entities.Avis;
 import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.services.AvisService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
@@ -56,8 +57,8 @@ public class AddAvisForm extends BaseForm{
                  int idJeux = j.getIdjeux();
                  System.out.println(score);
                  
-                 
-                 Avis a = new Avis(score,commentaire,48,idJeux);
+                 int iduser = Session.getInstance().getLoggedInUser().getId();
+                 Avis a = new Avis(score,commentaire,iduser,idJeux);
                  as.ajoutAvis(a);
              });
 }

@@ -31,10 +31,7 @@ public class ModifierPostForm extends BaseForm {
 
         Toolbar tb = new Toolbar(true);
         current = this;
-        setToolbar(tb);
-        getTitleArea().setUIID("Container");
-        setTitle("Ajout Reclamation");
-        getContentPane().setScrollVisible(false);
+
 
         super.addSideMenu(res);
         TextField tfID = new TextField(String.valueOf(r.getId_post()), "ArtilceID");
@@ -73,12 +70,12 @@ public class ModifierPostForm extends BaseForm {
 
             //appel fonction modfier reclamation men service
             if (ServicePost.getInstance().modifierPost(r)) { // if true
-                new ListPostForm(res).show();
+                new ListPostForm(res,r).show();
             }
         });
         Button btnAnnuler = new Button("Annuler");
         btnAnnuler.addActionListener(e -> {
-            new ListPostForm(res).show();
+            new ListPostForm(res,r).show();
         });
 
         Label l2 = new Label("");
