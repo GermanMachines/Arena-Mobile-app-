@@ -9,6 +9,7 @@ import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.entities.User;
 import com.arena.myapp.services.ServiceReclamation;
 import com.arena.myapp.services.UserService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -32,8 +33,9 @@ import java.util.Vector;
  */
 public class ListReclamationForm extends BaseForm {
     public ListReclamationForm(Resources res, Reclamation c) {
-        
+       
         super(BoxLayout.y());
+         final int ADMIN = 0;
         System.out.println("here");
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
@@ -44,7 +46,14 @@ public class ListReclamationForm extends BaseForm {
        
 
         ServiceReclamation as = new ServiceReclamation();
-        ArrayList<Reclamation> list = as.affichageReclamationsFront();
+          ArrayList<Reclamation> list ;
+          
+        if (Session.getInstance().getLoggedInUser().getId() != ADMIN) {
+             list = as.affichageReclamationsFront();
+        }else{
+            list = as.affichageReclamations();
+        }
+     
     
 
         {

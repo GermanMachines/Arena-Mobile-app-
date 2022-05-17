@@ -102,7 +102,7 @@ public class BaseForm extends Form {
        
        Category cat = new Category();
          Product prod = new Product();
-       
+       final int ADMIN = 20;
        
        
       
@@ -131,9 +131,9 @@ public class BaseForm extends Form {
            
                       
            tb.addMaterialCommandToSideMenu("Liste Avis", FontImage.MATERIAL_LIST, e -> new ListAvisForm(res,a).show());
-             tb.addMaterialCommandToSideMenu("Liste Categories reclamation", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
-          tb.addMaterialCommandToSideMenu("Add Category reclamation", FontImage.MATERIAL_LIST, e -> new AddCategoryReclamation(res).show());
-           tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_LIST, e -> new AddReclamationForm(res).show());
+           tb.addMaterialCommandToSideMenu("Liste Categories reclamation", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
+           tb.addMaterialCommandToSideMenu("Add Category reclamation", FontImage.MATERIAL_UPDATE, e -> new AddCategoryReclamation(res).show());       
+           tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_UPDATE, e -> new AddReclamationForm(res).show());     
            tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
            
        //       tb.addMaterialCommandToSideMenu("Post", FontImage.MATERIAL_EXIT_TO_APP, e -> new AjoutPostForm(res).show());

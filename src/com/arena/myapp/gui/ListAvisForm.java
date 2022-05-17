@@ -34,6 +34,7 @@ public class ListAvisForm extends BaseForm{
     public ListAvisForm(Resources res, Avis c){
       super(BoxLayout.y());
         Toolbar tb = new Toolbar(true);
+        final int ADMIN = 0;
         setToolbar(tb);
         tb.setTitle("Liste des Avis");
         getContentPane().setScrollVisible(true);
@@ -45,6 +46,13 @@ public class ListAvisForm extends BaseForm{
 
         AvisService as = new AvisService();
         ArrayList<Avis> list = as.affichageAvisFront();
+        
+         if (Session.getInstance().getLoggedInUser().getId() != ADMIN) {
+             list = as.affichageAvisFront();
+        }else{
+            list = as.affichageAvis();
+        }
+         
          {
 
             for (Avis a : list) {
