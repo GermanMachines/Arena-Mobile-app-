@@ -47,10 +47,11 @@ public class ListAvisForm extends BaseForm{
         AvisService as = new AvisService();
         ArrayList<Avis> list = as.affichageAvisFront();
         
-         if (Session.getInstance().getLoggedInUser().getId() != ADMIN) {
-             list = as.affichageAvisFront();
+            if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+             list = as.affichageAvis();
         }else{
-            list = as.affichageAvis();
+            
+             list = as.affichageAvisFront();
         }
          
          {

@@ -47,11 +47,13 @@ public class ListReclamationForm extends BaseForm {
 
         ServiceReclamation as = new ServiceReclamation();
           ArrayList<Reclamation> list ;
-          
-        if (Session.getInstance().getLoggedInUser().getId() != ADMIN) {
-             list = as.affichageReclamationsFront();
+
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")) {
+            
+                         list = as.affichageReclamations();
+
         }else{
-            list = as.affichageReclamations();
+             list = as.affichageReclamationsFront();
         }
      
     

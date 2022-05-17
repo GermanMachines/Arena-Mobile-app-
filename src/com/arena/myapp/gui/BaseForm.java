@@ -102,7 +102,6 @@ public class BaseForm extends Form {
        
        Category cat = new Category();
          Product prod = new Product();
-       final int ADMIN = 20;
        
        
       
@@ -111,6 +110,8 @@ public class BaseForm extends Form {
 //                FlowLayout.encloseCenterBottom(
 //                        new Label(res.getImage("profile-pic.jpg"), "PictureWhiteBackgrond"))
 //        ));
+
+
          tb.addMaterialCommandToSideMenu("Ajout user", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new AjoutUser(res).show());
          tb.addMaterialCommandToSideMenu("Ajout equipe", FontImage.MATERIAL_UPDATE, e -> new AddTeamForm(res).show());
              //   tb.addMaterialCommandToSideMenu("Voir Profile", FontImage.MATERIAL_ACCOUNT_CIRCLE, e -> new listUserForm(res,u).show());
@@ -119,7 +120,7 @@ public class BaseForm extends Form {
 
        //  tb.addMaterialCommandToSideMenu("Ajouter reclammation", FontImage.MATERIAL_ERROR, e -> new addReclaForm(res).show());
            tb.addMaterialCommandToSideMenu("Liste Equipe", FontImage.MATERIAL_LIST, e -> new ListTeamForm(res,b).show());
-
+            
        
            // tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
        // tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res).show());
