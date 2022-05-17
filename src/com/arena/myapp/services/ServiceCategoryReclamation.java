@@ -50,7 +50,6 @@ public class ServiceCategoryReclamation {
         String url ="http://127.0.0.1:8000/categoryreclamation/addCategorieReclamationJSON?nom="+cat.getNom();
         req.setPost(false);
         req.setUrl(url);
-        req.addArgument("nom",cat.getNom());
   
         System.out.println("req data :" + req.getRequestBody());
         req.addResponseListener((e) -> {
@@ -187,15 +186,15 @@ public Vector<CategoryReclamation> getCategoriesReclamationVector()
     }
    public boolean deleteCategorieReclamation(int id ) {
         System.out.println(id);
-         req.setPost(false);
-          String url ="http:/127.0.0.1:8000/categoryreclamation/deleteCategorieReclamationJSON?id="+id;
-           System.out.println(id);
-           System.out.println(url);
-        req.setUrl(url);
-        
+      //   req.setPost(false);
+          String url ="http://127.0.0.1:8000/categoryreclamation/deleteCategorieReclamationJSON?id="+id;
+          System.out.println(url);
+         req.setUrl(url);
+        System.out.println(req);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
+                System.out.println("inside response listener");
                     
                     req.removeResponseCodeListener(this);
             }

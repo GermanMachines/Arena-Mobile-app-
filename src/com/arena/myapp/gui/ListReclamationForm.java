@@ -91,19 +91,19 @@ public class ListReclamationForm extends BaseForm {
 
                 SpanLabel cat = new SpanLabel("Titre :" + a.getTitre());
                 SpanLabel cat1 = new SpanLabel("Message :" + a.getMessage());
-                SpanLabel cat2 = new SpanLabel("id category :" + a.getCategoryReclamationId());
-                SpanLabel cat6 = new SpanLabel("nom category :" + a.getNomCategory());
+            //    SpanLabel cat2 = new SpanLabel("id category :" + a.getCategoryReclamationId());
+                SpanLabel cat6 = new SpanLabel("Nom category :" + a.getNomCategory());
                 SpanLabel cat3 = new SpanLabel("Date :" + a.getDate());
                 SpanLabel cat4 = new SpanLabel("Etat :" + a.getEtat());
-                SpanLabel cat5 = new SpanLabel("id rec :" + a.getId());
+              //  SpanLabel cat5 = new SpanLabel("id rec :" + a.getId());
              
  
                 c3.add(cat);
                 c3.add(cat1);
-                c3.add(cat2);
+              //  c3.add(cat2);
                 c3.add(cat3);
                 c3.add(cat4);
-                c3.add(cat5);
+              //  c3.add(cat5);
                 c3.add(cat6);
         
 

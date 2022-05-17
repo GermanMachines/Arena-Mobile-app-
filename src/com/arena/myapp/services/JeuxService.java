@@ -18,7 +18,7 @@ import com.codename1.io.Properties;
 import com.codename1.messaging.Message;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
-import com.sun.mail.smtp.SMTPTransport;
+//import com.sun.mail.smtp.SMTPTransport;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

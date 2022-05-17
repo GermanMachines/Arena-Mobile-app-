@@ -43,7 +43,7 @@ public class ListCategoriesReclamation extends BaseForm{
      
         public ListCategoriesReclamation(Resources res, CategoryReclamation c) {
         super(BoxLayout.y());
-        System.out.println("List Categories Reclamation ");
+        System.out.println("List Categories Reclamation !!!");
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
         tb.setTitle("List Categories Reclamation");
@@ -67,14 +67,14 @@ public class ListCategoriesReclamation extends BaseForm{
                 c3.add(cat);
                 //c3.add(cat1);
   
-
+                
                 Button Delete = new Button("Delete");
                 c3.add(Delete);
                  
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");
-                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette categorie?");
+                    SpanLabel message = new SpanLabel("Etes-vous sur de vouloir supprimer cette reclamation?");
                     alert.add(message);
                     Button ok = new Button("oui");
                     Button cancel = new Button(new Command("non"));
@@ -82,8 +82,7 @@ public class ListCategoriesReclamation extends BaseForm{
                     ok.addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent evt) {
-                            System.out.println(a.getId());
-                           if( as.deleteCategorieReclamation(a.getId())){
+                            as.deleteCategorieReclamation(a.getId());
 
                             alert.dispose();
                             ToastBar.Status status = ToastBar.getInstance().createStatus();
@@ -95,7 +94,6 @@ public class ListCategoriesReclamation extends BaseForm{
 
                             refreshTheme();
                             new ListCategoriesReclamation(res,a).show();
-                          }
                         }
 
                     }
