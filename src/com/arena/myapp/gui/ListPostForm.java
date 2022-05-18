@@ -23,6 +23,7 @@ import com.codename1.ui.FontImage;
 
 import com.arena.myapp.entities.Post;
 import com.arena.myapp.services.ServicePost;
+import com.arena.myapp.utils.Session;
 import static com.codename1.ui.Component.LEFT;
 import static com.codename1.ui.Component.RIGHT;
 /**
@@ -36,7 +37,13 @@ public class ListPostForm extends BaseForm{
         super(BoxLayout.y());
 
         getContentPane().setScrollVisible(true);
+      if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
 
         
  
@@ -86,12 +93,12 @@ public class ListPostForm extends BaseForm{
  private void addJeux(Image img,Post c, Resources res, int i,Button CommentBtn) {
         
         
-        int height = Display.getInstance().convertToPixels(16f);
-        int width = Display.getInstance().convertToPixels(12f);
+        int height = Display.getInstance().convertToPixels(50f);
+        int width = Display.getInstance().convertToPixels(60f);
 
         Button image = new Button(img.fill(width, height));
         image.setUIID("Label");
-        Container cnt = BorderLayout.west(image);
+        Container cnt = BorderLayout.north(image);
         
 
           
@@ -150,16 +157,36 @@ public class ListPostForm extends BaseForm{
             //System.out.println("hello update");
             new ModifierPostForm(res ,c).show();
         });
+        
+         if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
                 cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
 
            
             BoxLayout.encloseX(titre),
             BoxLayout.encloseX(auteur),
              BoxLayout.encloseX(date),
-                       BoxLayout.encloseX(CommentBtn),
+                     
             BoxLayout.encloseX(rate),
-            BoxLayout.encloseX(lSupprimer,lModifier)));
+              BoxLayout.encloseX(CommentBtn),
+              
+            BoxLayout.encloseX(lSupprimer,lModifier)
+                
+                
+                ));
+         }else{
+              cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
 
+           
+            BoxLayout.encloseX(titre),
+            BoxLayout.encloseX(auteur),
+             BoxLayout.encloseX(date),
+                     
+            BoxLayout.encloseX(rate),
+              BoxLayout.encloseX(CommentBtn)
+                
+                
+                ));
+         }
      
 
         add(cnt);

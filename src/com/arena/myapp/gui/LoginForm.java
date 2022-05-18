@@ -50,7 +50,12 @@ public class LoginForm  extends BaseForm {
     public LoginForm(Resources res) {
         super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
          getContentPane().setScrollVisible(true);
+         
+         
         super.addSideMenu(res);
+
+        
+        
         setUIID("LoginForm");
         Container welcome = FlowLayout.encloseCenter(
              //   new Label("Welcome, ", "WelcomeWhite"),
@@ -85,12 +90,13 @@ public class LoginForm  extends BaseForm {
                // auth = serv.authentification(login.getText(), password.getText());
                 if ((names.get(0).getMdp().equals(password.getText())) && (names.get(0).getUsername().equals(login.getText()))) {
                     System.out.println("saaaa7iiiit");
-                    Dialog.show(names.get(0).getMdp(), "good", "ok", null);
+                    Dialog.show("Welcome", "good", "ok", null);
                                         ss.setLoggedInUser(names.get(0));
                                         
                                         System.out.println(ss.getLoggedInUser().toString());
                                         new listUserForm(res,names.get(0)).show();
-
+                                        
+                             
                 } else {       
                     Dialog.show("non", "Please verify Your Information", "ok", null);
 
@@ -107,7 +113,7 @@ public class LoginForm  extends BaseForm {
             }
 
         });
-        
+         
         Button createNewAccount = new Button("CREATE NEW ACCOUNT");
         createNewAccount.setUIID("CreateNewAccountButton");
         createNewAccount.addActionListener(e -> {

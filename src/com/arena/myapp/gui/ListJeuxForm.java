@@ -9,6 +9,7 @@ import com.arena.myapp.entities.Equipe;
 import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.services.EquipeService;
 import com.arena.myapp.services.JeuxService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
@@ -40,9 +41,15 @@ public class ListJeuxForm extends BaseForm{
         super(BoxLayout.y());
 
         getContentPane().setScrollVisible(true);
-        super.addSideMenu(res);
+       // super.addSideMenu(res);
 
+            if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
         
+        super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
  
 
         JeuxService as = new JeuxService();
@@ -70,7 +77,14 @@ public class ListJeuxForm extends BaseForm{
             Image placeHolder = Image.createImage(120, 90);
             EncodedImage enc = EncodedImage.createFromImage(placeHolder, false);
             URLImage urlim = URLImage.createToStorage(enc, urlImage, urlImage, URLImage.RESIZE_SCALE);
+            
+              if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
             addJeux(urlim,a,res,i,avisBtn,Delete,Modifier);
+             }else{
+              addJeux2(urlim,a,res,i,avisBtn);
+         }
+            
+            
             ScaleImageLabel image = new ScaleImageLabel(urlim);
             Container containerImg = new Container();
             image.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
@@ -94,12 +108,12 @@ public class ListJeuxForm extends BaseForm{
         private void addJeux(Image img,Jeux c, Resources res, int i,Button avisBtn,Button Delete,Button Modifier) {
         
         
-        int height = Display.getInstance().convertToPixels(20f);
-        int width = Display.getInstance().convertToPixels(30f);
+        int height = Display.getInstance().convertToPixels(50f);
+        int width = Display.getInstance().convertToPixels(60f);
 
         Button image = new Button(img.fill(width, height));
         image.setUIID("Label");
-        Container cnt = BorderLayout.west(image);
+        Container cnt = BorderLayout.north(image);
         
 
           
@@ -110,15 +124,15 @@ public class ListJeuxForm extends BaseForm{
         JeuxService as = new JeuxService();
         
         
-                cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
+                    cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
 
             BoxLayout.encloseX(CategorieTxt),
             BoxLayout.encloseX(NameCategTxt),
             BoxLayout.encloseX(DescriptionCategTxt),
             BoxLayout.encloseX(margin),
-            BoxLayout.encloseX(avisBtn),
-            BoxLayout.encloseX(Modifier),
-            BoxLayout.encloseX(Delete)
+            BoxLayout.encloseY(avisBtn),
+            BoxLayout.encloseY(Modifier),
+            BoxLayout.encloseY(Delete)
                   
 
         ));
@@ -170,6 +184,43 @@ public class ListJeuxForm extends BaseForm{
         add(cnt);
         System.out.println(cnt);
     }
+            private void addJeux2(Image img,Jeux c, Resources res, int i,Button avisBtn) {
+        
+        
+        int height = Display.getInstance().convertToPixels(50f);
+        int width = Display.getInstance().convertToPixels(60f);
 
+        Button image = new Button(img.fill(width, height));
+        image.setUIID("Label");
+        Container cnt = BorderLayout.north(image);
+        
+
+          
+        Label CategorieTxt = new Label("Jeux "+i,"NewsTopLine2");
+        Label NameCategTxt = new Label("Nom de jeux: "+c.getNomjeux(),"NewsTopLine2");
+        Label DescriptionCategTxt = new Label("Image: "+c.getImagejeux(),"NewsTopLine2");
+        Label margin = new Label("","NewsTopLine2");
+        JeuxService as = new JeuxService();
+        
+        
+                    cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
+
+            BoxLayout.encloseX(CategorieTxt),
+            BoxLayout.encloseX(NameCategTxt),
+            BoxLayout.encloseX(DescriptionCategTxt),
+            BoxLayout.encloseX(margin),
+            BoxLayout.encloseY(avisBtn)
+                  
+
+        ));
+                
+
+                   
+                    
+
+
+        add(cnt);
+        System.out.println(cnt);
+    }
  
 }

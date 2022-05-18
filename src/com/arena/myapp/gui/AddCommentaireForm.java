@@ -31,7 +31,13 @@ public class AddCommentaireForm extends BaseForm{
        
           super(BoxLayout.y());
 
+           if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
               
         setTitle("Ajouter une Commentaire");
         setLayout(BoxLayout.y());

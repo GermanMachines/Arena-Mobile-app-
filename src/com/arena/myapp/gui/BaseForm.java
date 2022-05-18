@@ -79,8 +79,15 @@ public class BaseForm extends Form {
         separator.setShowEvenIfBlank(true);
         return separator;
     }
+    
+    
+    
+   
 
     protected void addSideMenu(Resources res) {
+    
+        
+        
         Toolbar tb = getToolbar();
         Image img = res.getImage("profile-background.jpg");
         if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
@@ -170,4 +177,79 @@ public class BaseForm extends Form {
            
    
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    protected void addSideMenuUser(Resources res) {
+    
+        
+        
+        Toolbar tb = getToolbar();
+        Image img = res.getImage("profile-background.jpg");
+        if(img.getHeight() > Display.getInstance().getDisplayHeight() / 3) {
+            img = img.scaledHeight(Display.getInstance().getDisplayHeight() / 3);
+        }
+        ScaleImageLabel sl = new ScaleImageLabel(img);
+        sl.setUIID("BottomPad");
+       sl.setBackgroundType(Style.BACKGROUND_IMAGE_SCALED_FILL);
+//        User a = new User();
+     Equipe b = new Equipe();
+     Reclamation r = new Reclamation();
+     CategoryReclamation c = new CategoryReclamation();
+     Jeux j = new Jeux();
+     Tournois t = new Tournois();
+     User u = new User();
+      Avis a = new Avis();
+      Post p = new Post();
+       Commentaire com = new Commentaire();
+       
+       Category cat = new Category();
+         Product prod = new Product();
+       
+         
+
+
+                   tb.addMaterialCommandToSideMenu("Liste Equipe", FontImage.MATERIAL_LIST, e -> new ListTeamForm(res,b).show());
+           tb.addMaterialCommandToSideMenu("Liste Jeux", FontImage.MATERIAL_LIST, e -> new ListJeuxForm(res,j).show());
+           tb.addMaterialCommandToSideMenu("Liste Tournois", FontImage.MATERIAL_LIST, e -> new ListTournoisForm(res,t).show());
+           tb.addMaterialCommandToSideMenu("Liste Categories reclamation", FontImage.MATERIAL_LIST, e -> new ListCategoriesReclamation(res,c).show());
+           tb.addMaterialCommandToSideMenu("Liste reclammation", FontImage.MATERIAL_LIST, e -> new ListReclamationForm(res,r).show());
+           tb.addMaterialCommandToSideMenu("Liste Post", FontImage.MATERIAL_LIST, e -> new ListPostForm(res,p).show());    
+       
+              
+           tb.addMaterialCommandToSideMenu("Liste Commentaire", FontImage.MATERIAL_LIST, e -> new ListCommentaireForm(res,com).show());    
+          
+                     tb.addMaterialCommandToSideMenu("Liste Category produits", FontImage.MATERIAL_LIST, e -> new ListCategoryForm(res,cat).show());    
+                      tb.addMaterialCommandToSideMenu("Liste produits", FontImage.MATERIAL_LIST, e -> new ListProductForm(res,prod).show());    
+
+           
+   
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

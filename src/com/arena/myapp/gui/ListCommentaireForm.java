@@ -33,7 +33,13 @@ public class ListCommentaireForm extends BaseForm{
         setToolbar(tb);
         tb.setTitle("Liste des Commentaire");
         getContentPane().setScrollVisible(true);
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         System.out.println(Session.getInstance().getLoggedInUser().getId());
 
 

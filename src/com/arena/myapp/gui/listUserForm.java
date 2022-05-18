@@ -49,8 +49,15 @@ public class listUserForm extends BaseForm {
       //  setToolbar(tb);
        // tb.setTitle("Liste des Client");
         getContentPane().setScrollVisible(true);
+        
+        
+         if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
-
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         
       //  Button btnAddTask1 = new Button("Statistiques");
 

@@ -8,6 +8,7 @@ package com.arena.myapp.gui;
 import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.services.ServiceCategoryReclamation;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -27,7 +28,13 @@ import java.util.ArrayList;
 public class ListCategoryReclamationForm extends BaseForm {
     public ListCategoryReclamationForm(Resources res){
       super(BoxLayout.y());
+         if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         setTitle("Ajouter une Reclamation");
         setLayout(BoxLayout.y());
         
@@ -42,7 +49,8 @@ public class ListCategoryReclamationForm extends BaseForm {
               
  
                 c3.add(cat);
-  
+                  cat.setTextUIID("0xFFFFFF");
+
 
                 Button Delete = new Button("Delete");
                 c3.add(Delete);

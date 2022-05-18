@@ -41,8 +41,13 @@ public class ListReclamationForm extends BaseForm {
         setToolbar(tb);
         tb.setTitle("Liste des reclamations");
         getContentPane().setScrollVisible(true);
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
-
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
        
 
         ServiceReclamation as = new ServiceReclamation();
@@ -116,7 +121,12 @@ public class ListReclamationForm extends BaseForm {
                 c3.add(cat4);
               //  c3.add(cat5);
                 c3.add(cat6);
-        
+                        cat.setTextUIID("0xFFFFFF");                cat1.setTextUIID("0xFFFFFF");
+                cat3.setTextUIID("0xFFFFFF");                cat4.setTextUIID("0xFFFFFF");
+                cat6.setTextUIID("0xFFFFFF");
+
+
+
 
                 Button Delete = new Button("Delete");
                 c3.add(Delete);

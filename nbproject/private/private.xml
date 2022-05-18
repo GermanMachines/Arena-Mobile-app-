@@ -3,31 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/ServiceReclamation.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/ListAvisForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/LoginForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/AddAvisForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/AjoutPostForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/ListCategoriesReclamation.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/EquipeService.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/AddJeuxForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/ActivateForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/ModifierPostForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/TournoisService.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/ListTournoisForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/WalkthruForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/BaseForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/ServiceCategoryReclamation.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/AvisService.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/SignInForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/AddReclamationForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/SignUpForm.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/utils/Session.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/UserService.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/gui/AjoutUser.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/ServicePost.java</file>
-            <file>file:/C:/Users/tarek/OneDrive/Documents/GitHub/last/src/com/arena/myapp/services/JeuxService.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

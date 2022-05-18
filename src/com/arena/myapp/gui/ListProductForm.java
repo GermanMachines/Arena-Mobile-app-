@@ -38,6 +38,7 @@ import com.codename1.ui.util.Resources;
 import com.arena.myapp.entities.Product;
 import com.arena.myapp.services.ServicePost;
 import com.arena.myapp.services.ServiceProduct;
+import com.arena.myapp.utils.Session;
 import static com.codename1.ui.Component.LEFT;
 import static com.codename1.ui.Component.RIGHT;
 import java.util.ArrayList;
@@ -53,7 +54,13 @@ public class ListProductForm extends BaseForm{
         super(BoxLayout.y());
 
         getContentPane().setScrollVisible(true);
+       if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
 
         
  

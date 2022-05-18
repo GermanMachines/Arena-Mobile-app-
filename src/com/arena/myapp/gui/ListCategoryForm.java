@@ -10,6 +10,7 @@ import com.arena.myapp.entities.CategoryReclamation;
 import com.arena.myapp.entities.Reclamation;
 import com.arena.myapp.services.ServiceCategory;
 import com.arena.myapp.services.ServiceCategoryReclamation;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -29,7 +30,13 @@ import java.util.ArrayList;
 public class ListCategoryForm extends BaseForm {
         public ListCategoryForm(Resources res, Category c) {
       super(BoxLayout.y());
+            if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         setTitle("Ajouter une Category");
         setLayout(BoxLayout.y());
         
@@ -47,8 +54,9 @@ public class ListCategoryForm extends BaseForm {
   
 
                 Button Delete = new Button("Delete");
+                 if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
                 c3.add(Delete);
-                 
+                 }
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");
@@ -86,7 +94,10 @@ public class ListCategoryForm extends BaseForm {
 
                 });
                Button Modifier = new Button("Modifier ");
-                    c3.add(Modifier);
+                    if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+                         c3.add(Modifier);
+
+         }
                      Modifier.getAllStyles().setBgColor(0xF36B08);
               Modifier.addActionListener(e -> {
                     new UpdateCategoryForm(res,a).show();

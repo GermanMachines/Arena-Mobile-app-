@@ -11,6 +11,7 @@ import com.codename1.components.SpanLabel;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.arena.myapp.services.ServiceCategoryReclamation;
+import com.arena.myapp.utils.Session;
 import com.arena.myapp.utils.Statics;
 import com.codename1.components.ToastBar;
 import com.codename1.io.CharArrayReader;
@@ -48,7 +49,13 @@ public class ListCategoriesReclamation extends BaseForm{
         setToolbar(tb);
         tb.setTitle("List Categories Reclamation");
         getContentPane().setScrollVisible(true);
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         
         
         ServiceCategoryReclamation as = new ServiceCategoryReclamation();
@@ -66,7 +73,8 @@ public class ListCategoriesReclamation extends BaseForm{
             
                 c3.add(cat);
                 //c3.add(cat1);
-  
+                  cat.setTextUIID("0xFFFFFF");
+
                 
                 Button Delete = new Button("Delete");
                 c3.add(Delete);

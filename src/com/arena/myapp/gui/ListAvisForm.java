@@ -38,7 +38,13 @@ public class ListAvisForm extends BaseForm{
         setToolbar(tb);
         tb.setTitle("Liste des Avis");
         getContentPane().setScrollVisible(true);
+         if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         System.out.println(Session.getInstance().getLoggedInUser().getId());
            //  System.out.println(ss.getLoggedInUser().toString());
 
@@ -69,7 +75,9 @@ public class ListAvisForm extends BaseForm{
                 c3.add(cat);
                 c3.add(cat1);
                 c3.add(cat2);
- 
+                
+                cat.setTextUIID("0xFFFFFF");
+                cat1.setTextUIID("0xFFFFFF");cat2.setTextUIID("0xFFFFFF");
     Button Delete = new Button("Delete");
                 c3.add(Delete);
                  

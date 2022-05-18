@@ -6,7 +6,10 @@
 package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.Equipe;
+import com.arena.myapp.entities.Jeux;
 import com.arena.myapp.services.EquipeService;
+import com.arena.myapp.services.JeuxService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -33,8 +36,13 @@ public class ListTeamForm extends BaseForm {
        // setToolbar(tb);
        // tb.setTitle("Liste des equipes");
         getContentPane().setScrollVisible(true);
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
-
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
         
       //  Button btnAddTask1 = new Button("Statistiques");
 
@@ -52,21 +60,28 @@ public class ListTeamForm extends BaseForm {
 
                 Container c3 = new Container(BoxLayout.y());
 
-                SpanLabel cat = new SpanLabel("Nom :" + a.getNom());
-                SpanLabel cat1 = new SpanLabel("logo :" + a.getLogo());
-                SpanLabel cat2 = new SpanLabel("Score :" + a.getScore());
-                SpanLabel cat3 = new SpanLabel("region :" + a.getRegion());
-               
+               SpanLabel cat = new SpanLabel("Nom :" + a.getNom());
+               SpanLabel cat1 = new SpanLabel("logo :" + a.getLogo());
+               SpanLabel cat2 = new SpanLabel("Score :" + a.getScore());
+               SpanLabel cat3 = new SpanLabel("region :" + a.getRegion());
+
 
                 c3.add(cat);
                 c3.add(cat1);
                 c3.add(cat2);
                 c3.add(cat3);
-               
+                
+                cat.setTextUIID("0xFFFFFF");
+                cat1.setTextUIID("0xFFFFFF");
+                cat2.setTextUIID("0xFFFFFF");
+                cat3.setTextUIID("0xFFFFFF");
+             //  c3.getStyle().setBgColor(0x361754);
+               c3.getStyle().setBgTransparency(255);
 
                 Button Delete = new Button("Delete");
+                if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
                 c3.add(Delete);
-                 
+                }
                 Delete.getAllStyles().setBgColor(0xF36B08);
                 Delete.addActionListener(e -> {
                     Dialog alert = new Dialog("Attention");

@@ -7,6 +7,7 @@ package com.arena.myapp.gui;
 
 import com.arena.myapp.entities.User;
 import com.arena.myapp.services.UserService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -32,7 +33,13 @@ public class ListUsers extends BaseForm {
       //  setToolbar(tb);
        // tb.setTitle("Liste des Client");
         getContentPane().setScrollVisible(true);
+         if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
 
         
       //  Button btnAddTask1 = new Button("Statistiques");
@@ -81,6 +88,16 @@ public class ListUsers extends BaseForm {
                 c3.add(cat10);
                 c3.add(cat11);
                   c3.add(cat12);
+                  
+                  
+                  
+                  cat.setTextUIID("0xFFFFFF");cat1.setTextUIID("0xFFFFFF");cat2.setTextUIID("0xFFFFFF");
+                  cat3.setTextUIID("0xFFFFFF");cat4.setTextUIID("0xFFFFFF");cat5.setTextUIID("0xFFFFFF");
+                  cat6.setTextUIID("0xFFFFFF");cat7.setTextUIID("0xFFFFFF");
+                  cat8.setTextUIID("0xFFFFFF");cat9.setTextUIID("0xFFFFFF");cat10.setTextUIID("0xFFFFFF");
+                  cat11.setTextUIID("0xFFFFFF");cat12.setTextUIID("0xFFFFFF");
+                  
+                  
 //if (c.getUsername().equals(a.getUsername())) {
 
 //               Button Delete = new Button("Delete");

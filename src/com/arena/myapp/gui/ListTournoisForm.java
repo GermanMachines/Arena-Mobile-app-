@@ -10,6 +10,7 @@ import com.arena.myapp.entities.Participation;
 import com.arena.myapp.entities.Tournois;
 import com.arena.myapp.services.JeuxService;
 import com.arena.myapp.services.TournoisService;
+import com.arena.myapp.utils.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
@@ -32,7 +33,15 @@ public class ListTournoisForm extends BaseForm{
         super(BoxLayout.y());
 
         getContentPane().setScrollVisible(true);
+        
+            if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
+        
         super.addSideMenu(res);
+        
+         }else{
+              super.addSideMenuUser(res);
+         }
+       // super.addSideMenu(res);
 
         
  
@@ -70,11 +79,17 @@ public class ListTournoisForm extends BaseForm{
                 c3.add(cat7);
                 c3.add(cat8);
                 c3.add(cat9);
-               
+                cat.setTextUIID("0xFFFFFF"); cat1.setTextUIID("0xFFFFFF"); cat2.setTextUIID("0xFFFFFF");
+                 cat3.setTextUIID("0xFFFFFF"); cat4.setTextUIID("0xFFFFFF"); cat5.setTextUIID("0xFFFFFF");
+                 cat6.setTextUIID("0xFFFFFF"); cat7.setTextUIID("0xFFFFFF"); cat8.setTextUIID("0xFFFFFF");
+                 cat9.setTextUIID("0xFFFFFF");
+                           
+       
 
                 Button Delete = new Button("Delete");
+                if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
                 c3.add(Delete);
-                 
+                }
                 Button Participer = new Button("Participer");
                     c3.add(Participer);
                     
@@ -139,7 +154,9 @@ public class ListTournoisForm extends BaseForm{
 
                 });
                 Button Modifier = new Button("Modifier ");
+                if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
                     c3.add(Modifier);
+                }
                      Modifier.getAllStyles().setBgColor(0xF36B08);
               Modifier.addActionListener(e -> {
                     new UpdateTournoisForm(res,a).show();
@@ -156,7 +173,7 @@ public class ListTournoisForm extends BaseForm{
                 add(c3);
 
             }
-
+ 
         }
 
     }
