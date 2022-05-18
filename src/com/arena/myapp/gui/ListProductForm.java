@@ -149,6 +149,9 @@ public class ListProductForm extends BaseForm{
             System.out.println("hello update");
             new UpdateProductForm(res, p).show();
         });
+        
+        
+        if (Session.getInstance().getLoggedInUser().getRole().equals("admin")){
         cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
                 BoxLayout.encloseX(name),
                 BoxLayout.encloseX(price),
@@ -159,7 +162,21 @@ public class ListProductForm extends BaseForm{
                 BoxLayout.encloseX(rate),
                 BoxLayout.encloseX(lSupprimer, lModifier)));
 
+ 
+    }else{
+      cnt.add(BorderLayout.CENTER, BoxLayout.encloseY(
+                BoxLayout.encloseX(name),
+                BoxLayout.encloseX(price),
+                BoxLayout.encloseX(qty),
+                BoxLayout.encloseX(desc),
+                BoxLayout.encloseX(productImage),
+                BoxLayout.encloseX(idCat),
+                BoxLayout.encloseX(rate)
+               ));
+        }
         add(cnt);
         System.out.println(cnt);
-    }
+}
+        
+        
 }
