@@ -47,6 +47,7 @@ import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import com.arena.myapp.entities.User;
 import com.arena.myapp.utils.Session;
+import com.codename1.ui.plaf.UIManager;
 
 
 
@@ -166,11 +167,11 @@ public class BaseForm extends Form {
 
            
             
-           
+
            
 
       
-        tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, e -> new WalkthruForm(res).show());
+        tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, l -> {System.exit(0);});
            
         
       
@@ -227,6 +228,7 @@ public class BaseForm extends Form {
           
                      tb.addMaterialCommandToSideMenu("Liste Category produits", FontImage.MATERIAL_LIST, e -> new ListCategoryForm(res,cat).show());    
                       tb.addMaterialCommandToSideMenu("Liste produits", FontImage.MATERIAL_LIST, e -> new ListProductForm(res,prod).show());    
+        tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_EXIT_TO_APP, l -> {System.exit(0);});
 
            
    
