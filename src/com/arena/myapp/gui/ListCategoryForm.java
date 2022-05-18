@@ -48,7 +48,8 @@ public class ListCategoryForm extends BaseForm {
                
 
                 SpanLabel cat = new SpanLabel("Nom Categorie :" + a.getName());
-              
+                                cat.setTextUIID("0xFFFFFF");
+
  
                 c3.add(cat);
   
